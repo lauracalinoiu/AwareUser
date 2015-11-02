@@ -31,8 +31,39 @@ class ViewController: UIViewController {
                 return
             }
             self.questionArray = results
-            self.questionIndex = 0
             self.setUpQuestionLabel()
+            self.getPossibleAnswersFromParse()
+        }
+    }
+    
+    func getPossibleAnswersFromParse(){
+        let thisQuestion = self.questionArray[self.questionIndex]
+        ParseAPIClient.sharedInstance.getAnswersForQuestion(thisQuestion){ [unowned self] results, error in
+            
+            guard error == nil else {
+                return
+            }
+            guard results != nil else {
+                return
+            }
+            
+            var labels: [UILabel] = [UILabel]()
+            var i = 0
+            let startY = self.questionLabel.frame.origin.y + self.questionLabel.frame.height
+            for answer in results!{
+                let label = UILabel(frame: CGRectMake(20, CGFloat(Int(startY)+20+50*i), self.view.frame.width-20, 100 ))
+                
+                label.numberOfLines = 0
+                label.text = answer["text"] as? String
+                labels.append(label)
+                i++
+            }
+            
+            dispatch_async(dispatch_get_main_queue()){
+                for label in labels{
+                    self.view.addSubview(label)
+                }
+            }
         }
     }
     

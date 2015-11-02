@@ -18,16 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhJ-qn-Dex">
-                                <rect key="frame" x="167" y="526" width="49" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Submit"/>
-                                <connections>
-                                    <action selector="submitButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UtS-aV-gTl"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhb-1E-O5b">
-                                <rect key="frame" x="100" y="80" width="473" height="0.0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading question ..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhb-1E-O5b">
+                                <rect key="frame" x="20" y="124" width="560" height="24"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="169" id="HD7-sO-PTp"/>
@@ -36,8 +28,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZwT-h2-MwZ">
-                                <rect key="frame" x="20" y="80" width="71" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZwT-h2-MwZ">
+                                <rect key="frame" x="265" y="72" width="71" height="24"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="71" id="1ga-5x-gRD"/>
@@ -51,14 +43,11 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="leadingMargin" secondItem="ZwT-h2-MwZ" secondAttribute="leading" id="3Ep-8x-yww"/>
-                            <constraint firstItem="ZwT-h2-MwZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="3mc-cO-zsK"/>
-                            <constraint firstItem="Zhb-1E-O5b" firstAttribute="top" secondItem="ZwT-h2-MwZ" secondAttribute="top" id="GQF-la-gPk"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IhJ-qn-Dex" secondAttribute="bottom" constant="44" id="MBg-Rw-yzq"/>
-                            <constraint firstItem="Zhb-1E-O5b" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="80" id="YLg-qV-3S9"/>
-                            <constraint firstItem="Zhb-1E-O5b" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="leR-LO-Jwh"/>
-                            <constraint firstItem="IhJ-qn-Dex" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="147" id="ngo-fo-Qbd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Zhb-1E-O5b" secondAttribute="trailing" constant="7" id="xyF-Gk-INT"/>
+                            <constraint firstItem="ZwT-h2-MwZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="3mc-cO-zsK"/>
+                            <constraint firstItem="ZwT-h2-MwZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="A84-QU-XoK"/>
+                            <constraint firstItem="Zhb-1E-O5b" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="YLg-qV-3S9"/>
+                            <constraint firstItem="Zhb-1E-O5b" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="leR-LO-Jwh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Zhb-1E-O5b" secondAttribute="trailing" id="xyF-Gk-INT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6EB-T2-pl3"/>
