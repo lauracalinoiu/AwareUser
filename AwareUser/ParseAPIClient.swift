@@ -8,11 +8,13 @@
 
 import Foundation
 import Parse
+import GameplayKit
 
 class ParseAPIClient {
     
     let NETWORK_INACCESSIBLE = "The network was inaccesible"
     let queryLimit = 10
+    let maxResults = 3
     
     func getQuestionsFromParse(completionHandler: (result: [PFObject]!, error: String?) -> Void){
         let query = PFQuery(className: "question")
@@ -21,7 +23,9 @@ class ParseAPIClient {
             (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
                 if let objectsUnwrapped = objects {
-                    completionHandler(result: objectsUnwrapped, error: nil)
+                    let shuffled = GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(objectsUnwrapped) as! [PFObject]
+                    completionHandler(result: Array<PFObject>(shuffled[0..<self.maxResults]), error: nil)
+                    
                 }
             } else {
                 completionHandler(result: nil, error: self.NETWORK_INACCESSIBLE)
