@@ -39,12 +39,63 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oYE-uk-zDQ" customClass="AnswersTable" customModule="AwareUser" customModuleProvider="target">
+                                <rect key="frame" x="20" y="184" width="560" height="416"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="6yk-cr-TR5" customClass="AnswersCell" customModule="AwareUser" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="560" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6yk-cr-TR5" id="dV4-ee-5UG">
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9J-1x-Kpe" customClass="CheckBox" customModule="AwareUser" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="7" width="30" height="30"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="6pa-wd-usr"/>
+                                                        <constraint firstAttribute="width" constant="30" id="eMj-ra-HQf"/>
+                                                        <constraint firstAttribute="height" constant="30" id="uh4-sg-3HT"/>
+                                                    </constraints>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpX-bs-fky">
+                                                    <rect key="frame" x="82" y="6" width="478" height="32"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="jpX-bs-fky" secondAttribute="trailing" constant="-8" id="6QL-rB-UpQ"/>
+                                                <constraint firstItem="jpX-bs-fky" firstAttribute="leading" secondItem="Z9J-1x-Kpe" secondAttribute="trailing" constant="36" id="Hci-6I-mq5"/>
+                                                <constraint firstItem="Z9J-1x-Kpe" firstAttribute="centerY" secondItem="dV4-ee-5UG" secondAttribute="centerY" id="P92-Wj-De5"/>
+                                                <constraint firstItem="Z9J-1x-Kpe" firstAttribute="leading" secondItem="dV4-ee-5UG" secondAttribute="leadingMargin" constant="8" id="dyG-v6-wje"/>
+                                                <constraint firstItem="jpX-bs-fky" firstAttribute="centerY" secondItem="Z9J-1x-Kpe" secondAttribute="centerY" id="gmS-tB-k54"/>
+                                                <constraint firstItem="jpX-bs-fky" firstAttribute="top" secondItem="dV4-ee-5UG" secondAttribute="topMargin" constant="-2" id="uXa-JD-zRx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <connections>
+                                            <outlet property="answerLabel" destination="jpX-bs-fky" id="pev-Q4-RU5"/>
+                                            <outlet property="checkbox" destination="Z9J-1x-Kpe" id="Y2R-eJ-Evg"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ZwT-h2-MwZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="3mc-cO-zsK"/>
                             <constraint firstItem="ZwT-h2-MwZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="A84-QU-XoK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oYE-uk-zDQ" secondAttribute="trailing" id="B04-L5-WNn"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oYE-uk-zDQ" secondAttribute="bottom" id="DNf-jt-jZc"/>
+                            <constraint firstItem="oYE-uk-zDQ" firstAttribute="top" secondItem="Zhb-1E-O5b" secondAttribute="bottom" constant="36" id="QcO-n0-w3r"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="oYE-uk-zDQ" secondAttribute="leading" id="WpQ-z4-dwR"/>
                             <constraint firstItem="Zhb-1E-O5b" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="YLg-qV-3S9"/>
                             <constraint firstItem="Zhb-1E-O5b" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="leR-LO-Jwh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Zhb-1E-O5b" secondAttribute="trailing" id="xyF-Gk-INT"/>
@@ -52,6 +103,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="6EB-T2-pl3"/>
                     <connections>
+                        <outlet property="answersTable" destination="oYE-uk-zDQ" id="xbT-IQ-6hd"/>
                         <outlet property="infoQuestionLabel" destination="ZwT-h2-MwZ" id="jBO-jk-Bk4"/>
                         <outlet property="questionLabel" destination="Zhb-1E-O5b" id="XHL-RQ-nN7"/>
                     </connections>

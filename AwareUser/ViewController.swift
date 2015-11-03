@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var infoQuestionLabel: UILabel!
+    @IBOutlet weak var answersTable: AnswersTable!
     
     var questionArray: [PFObject] = []
     var questionIndex = 0
@@ -46,24 +47,13 @@ class ViewController: UIViewController {
             guard results != nil else {
                 return
             }
-            
-            var labels: [UILabel] = [UILabel]()
-            var i = 0
-            let startY = self.questionLabel.frame.origin.y + self.questionLabel.frame.height
-            for answer in results!{
-                let label = UILabel(frame: CGRectMake(20, CGFloat(Int(startY)+20+50*i), self.view.frame.width-20, 100 ))
-                
-                label.numberOfLines = 0
-                label.text = answer["text"] as? String
-                labels.append(label)
-                i++
-            }
-            
+        
+            self.answersTable.answer = results!
             dispatch_async(dispatch_get_main_queue()){
-                for label in labels{
-                    self.view.addSubview(label)
-                }
+               self.answersTable.reloadData()
             }
+            
+            
         }
     }
     
