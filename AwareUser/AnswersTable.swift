@@ -12,6 +12,7 @@ import Parse
 class AnswersTable: UITableView, UITableViewDelegate, UITableViewDataSource {
 
     var answer: [PFObject] = [PFObject]()
+    var checkboxValues: [Bool] = [Bool]()
     
     override func awakeFromNib() {
         self.delegate = self
@@ -27,10 +28,32 @@ class AnswersTable: UITableView, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! AnswersCell
+        cell.checkbox.tag = indexPath.row
+        cell.checkbox.addTarget(self, action: "checkBoxStateChanged:", forControlEvents: .TouchUpInside)
+        checkboxValues.append(false)
         let thisAnswer = answer[indexPath.row]["text"] as! String
         cell.answerLabel.text = thisAnswer
-        
         return cell
     }
 
+
+    func checkBoxStateChanged(sender: CheckBox){
+        checkboxValues[sender.tag] = sender.isChecked
+    }
+    
+    func answersAreCorrect() -> Bool{
+        var correct = true
+        for index in 0 ..< answer.count {
+            if let valid = answer[index]["is_answer"] as? Bool{
+                if valid != checkboxValues[index]{
+                    correct = false
+                }
+            }
+        }
+        return correct
+    }
+    
+    func deleteAllAnswers(){
+        answer = [PFObject]()
+    }
 }

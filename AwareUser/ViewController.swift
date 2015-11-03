@@ -18,9 +18,12 @@ class ViewController: UIViewController {
     var questionArray: [PFObject] = []
     var questionIndex = 0
     
+    var score = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getQuestionsFromParse()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Play, target: self, action: "submitAnswers:")
     }
     
     func getQuestionsFromParse(){
@@ -52,8 +55,6 @@ class ViewController: UIViewController {
             dispatch_async(dispatch_get_main_queue()){
                self.answersTable.reloadData()
             }
-            
-            
         }
     }
     
@@ -68,20 +69,38 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func submitButtonPressed(sender: UIButton) {
+    func submitAnswers(sender: UIBarButtonItem) {
+        computeScore()
+        
         if questionIndex >= questionArray.count - 1 {
+            save()
+            setAllToInitial()
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
             let resultsView = storyboard.instantiateViewControllerWithIdentifier("results")
             self.presentViewController(resultsView, animated: true, completion: nil)
+        
         } else {
             questionIndex++
             setUpQuestionLabel()
         }
     }
     
+    func save(){
+        print("I'll save your \(score)")
+    }
     
+    func setAllToInitial(){
+        score = 0
+        questionArray = []
+        questionIndex = 0
+        answersTable.deleteAllAnswers()
+    }
     
-    
+    func computeScore(){
+        if answersTable.answersAreCorrect(){
+            score++
+        }
+    }
     
 }
 
