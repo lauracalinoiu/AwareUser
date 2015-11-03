@@ -11,7 +11,7 @@ import Parse
 
 class AnswersTable: UITableView, UITableViewDelegate, UITableViewDataSource {
 
-    var answer: [PFObject] = [PFObject]()
+    var answers: [PFObject] = [PFObject]()
     var checkboxValues: [Bool] = [Bool]()
     
     override func awakeFromNib() {
@@ -23,16 +23,20 @@ class AnswersTable: UITableView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return answer.count
+        return answers.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! AnswersCell
+        
         cell.checkbox.tag = indexPath.row
         cell.checkbox.addTarget(self, action: "checkBoxStateChanged:", forControlEvents: .TouchUpInside)
+        cell.checkbox.isChecked = false
         checkboxValues.append(false)
-        let thisAnswer = answer[indexPath.row]["text"] as! String
+        
+        let thisAnswer = answers[indexPath.row]["text"] as! String
         cell.answerLabel.text = thisAnswer
+        
         return cell
     }
 
@@ -43,8 +47,8 @@ class AnswersTable: UITableView, UITableViewDelegate, UITableViewDataSource {
     
     func answersAreCorrect() -> Bool{
         var correct = true
-        for index in 0 ..< answer.count {
-            if let valid = answer[index]["is_answer"] as? Bool{
+        for index in 0 ..< answers.count {
+            if let valid = answers[index]["is_answer"] as? Bool{
                 if valid != checkboxValues[index]{
                     correct = false
                 }
@@ -54,6 +58,8 @@ class AnswersTable: UITableView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func deleteAllAnswers(){
-        answer = [PFObject]()
+        answers.removeAll()
+        checkboxValues.removeAll()
+        reloadData()
     }
 }

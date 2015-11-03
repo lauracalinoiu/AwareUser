@@ -51,7 +51,7 @@ class ViewController: UIViewController {
                 return
             }
         
-            self.answersTable.answer = results!
+            self.answersTable.answers = results!
             dispatch_async(dispatch_get_main_queue()){
                self.answersTable.reloadData()
             }
@@ -74,14 +74,20 @@ class ViewController: UIViewController {
         
         if questionIndex >= questionArray.count - 1 {
             save()
-            setAllToInitial()
+
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-            let resultsView = storyboard.instantiateViewControllerWithIdentifier("results")
+            let resultsView = storyboard.instantiateViewControllerWithIdentifier("navigatorToResults") as! UINavigationController
+            let resultsController = resultsView.topViewController as! ResultsController
+            resultsController.score = score
+            resultsController.fromTotal = questionArray.count
             self.presentViewController(resultsView, animated: true, completion: nil)
+            
+            setAllToInitial()
         
         } else {
             questionIndex++
-            setUpQuestionLabel()
+            answersTable.deleteAllAnswers()
+            getQuestionsFromParse()
         }
     }
     
