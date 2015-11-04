@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import GameplayKit
 
 class ViewController: UIViewController {
     
@@ -22,11 +23,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getQuestionsFromParse()
+        getQuestionsFromParse(){
+            self.getPossibleAnswersFromParse()
+        }
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Play, target: self, action: "submitAnswers:")
     }
     
-    func getQuestionsFromParse(){
+    func getQuestionsFromParse(completionHandler: () -> ()){
         ParseAPIClient.sharedInstance.getQuestions(){ [unowned self] results, error in
             guard error == nil else {
                 return
@@ -34,9 +37,9 @@ class ViewController: UIViewController {
             guard results != nil else {
                 return
             }
-            self.questionArray = results
+            self.questionArray = ParseAPIClient.sharedInstance.getFirstShuffledQuestions(results)
             self.setUpQuestionLabel()
-            self.getPossibleAnswersFromParse()
+            completionHandler()
         }
     }
     
@@ -50,11 +53,14 @@ class ViewController: UIViewController {
             guard results != nil else {
                 return
             }
-        
-            self.answersTable.answers = results!
-            dispatch_async(dispatch_get_main_queue()){
-               self.answersTable.reloadData()
-            }
+           self.setupAnswersInTable(results)
+        }
+    }
+    
+    func setupAnswersInTable(results: [PFObject]?){
+        self.answersTable.answers = results!
+        dispatch_async(dispatch_get_main_queue()){
+            self.answersTable.reloadData()
         }
     }
     
@@ -74,7 +80,7 @@ class ViewController: UIViewController {
         
         if questionIndex >= questionArray.count - 1 {
             save()
-
+            
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
             let resultsView = storyboard.instantiateViewControllerWithIdentifier("navigatorToResults") as! UINavigationController
             let resultsController = resultsView.topViewController as! ResultsController
@@ -87,12 +93,12 @@ class ViewController: UIViewController {
         } else {
             questionIndex++
             answersTable.deleteAllAnswers()
-            getQuestionsFromParse()
+            setUpQuestionLabel()
+            getPossibleAnswersFromParse()
         }
     }
     
     func save(){
-        print("I'll save your \(score)")
         ParseAPIClient.sharedInstance.pinLocallyAScore(self.score, total: questionArray.count)
     }
     
