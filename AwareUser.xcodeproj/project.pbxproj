@@ -29,6 +29,7 @@
 		D3F6E3421BE6510A00FAEC59 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3F6E3381BE6510A00FAEC59 /* SystemConfiguration.framework */; };
 		D3F6E3441BE7480700FAEC59 /* ParseAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F6E3431BE7480700FAEC59 /* ParseAPIClient.swift */; };
 		D3F9D08A1BE96DDB00305D08 /* ResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F9D0891BE96DDB00305D08 /* ResultsController.swift */; };
+		D3F9D08C1BE9FD3F00305D08 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F9D08B1BE9FD3F00305D08 /* HistoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		D3F6E3381BE6510A00FAEC59 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D3F6E3431BE7480700FAEC59 /* ParseAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseAPIClient.swift; sourceTree = "<group>"; };
 		D3F9D0891BE96DDB00305D08 /* ResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsController.swift; sourceTree = "<group>"; };
+		D3F9D08B1BE9FD3F00305D08 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +118,9 @@
 				D318AC511BE897510025160D /* CheckBox.swift */,
 				D318AC531BE89B790025160D /* AnswersTable.swift */,
 				D318AC551BE89D300025160D /* AnswersCell.swift */,
-				D3DE84061BE452DA00261796 /* Main.storyboard */,
 				D3F9D0891BE96DDB00305D08 /* ResultsController.swift */,
+				D3F9D08B1BE9FD3F00305D08 /* HistoryViewController.swift */,
+				D3DE84061BE452DA00261796 /* Main.storyboard */,
 				D3DE84091BE452DA00261796 /* Assets.xcassets */,
 				D3DE840B1BE452DA00261796 /* LaunchScreen.storyboard */,
 				D3DE840E1BE452DA00261796 /* Info.plist */,
@@ -206,6 +209,7 @@
 				D3DE84031BE452DA00261796 /* AppDelegate.swift in Sources */,
 				D3F6E3441BE7480700FAEC59 /* ParseAPIClient.swift in Sources */,
 				D3F9D08A1BE96DDB00305D08 /* ResultsController.swift in Sources */,
+				D3F9D08C1BE9FD3F00305D08 /* HistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     }
     
     func getQuestionsFromParse(){
-        ParseAPIClient.sharedInstance.getQuestionsFromParse(){ [unowned self] results, error in
+        ParseAPIClient.sharedInstance.getQuestions(){ [unowned self] results, error in
             guard error == nil else {
                 return
             }
@@ -93,6 +93,7 @@ class ViewController: UIViewController {
     
     func save(){
         print("I'll save your \(score)")
+        ParseAPIClient.sharedInstance.pinLocallyAScore(self.score, total: questionArray.count)
     }
     
     func setAllToInitial(){

@@ -16,7 +16,7 @@ class ParseAPIClient {
     let queryLimit = 10
     let maxResults = 3
     
-    func getQuestionsFromParse(completionHandler: (result: [PFObject]!, error: String?) -> Void){
+    func getQuestions(completionHandler: (result: [PFObject]!, error: String?) -> Void){
         let query = PFQuery(className: "question")
         query.limit = queryLimit
         query.findObjectsInBackgroundWithBlock {
@@ -36,6 +36,34 @@ class ParseAPIClient {
     func getAnswersForQuestion(question: PFObject , completionHandler: (result: [PFObject]!, error: String?) -> Void){
         let relation = question.relationForKey("answers")
         relation.query()?.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                if let objectsUnwrapped = objects {
+                    completionHandler(result: objectsUnwrapped, error: nil)
+                }
+            } else {
+                completionHandler(result: nil, error: self.NETWORK_INACCESSIBLE)
+            }
+        }
+    }
+    
+    func pinLocallyAScore(score: Int, total: Int){
+        let gameScore = PFObject(className:"Score")
+        gameScore["score"] = score
+        gameScore["total"] = total
+        gameScore["when"] = NSDate()
+        gameScore.pinInBackground()
+    }
+    
+    func deletePins(){
+        
+    }
+    
+    func getScores(completionHandler: (result: [PFObject]!, error: String?) -> Void){
+        let query = PFQuery(className: "Score")
+        query.fromLocalDatastore()
+        query.orderByDescending("when")
+        query.findObjectsInBackgroundWithBlock{ [unowned self]
             (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
                 if let objectsUnwrapped = objects {
