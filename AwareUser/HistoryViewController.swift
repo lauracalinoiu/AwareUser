@@ -49,9 +49,12 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("historyCell", forIndexPath: indexPath)
-        let score = historyScores[indexPath.row]
-        cell.textLabel?.text = "\(score["score"] as! Int) / \(score["total"] as! Int)"
-        if let whenScoreWasCreated = score["when"] as? NSDate{
+        let scoreObj = historyScores[indexPath.row]
+        let score = scoreObj["score"] as! Int
+        let total = scoreObj["total"] as! Int
+        
+        cell.textLabel?.text = "\(score) / \(total)"
+        if let whenScoreWasCreated = scoreObj["when"] as? NSDate{
             let dateAsString = HistoryViewController.dateFormatter.stringFromDate(whenScoreWasCreated)
             cell.detailTextLabel?.text = "\(dateAsString)"
         }
