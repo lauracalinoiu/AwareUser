@@ -13,12 +13,29 @@ import GameplayKit
 class ParseAPIClient {
     
     let NETWORK_INACCESSIBLE = "The network was inaccesible"
-    let queryLimit = 10
-    let maxResults = 3
+    let questionQueryLimit = 10
+    let suggestionQueryLimit = 10
+    let questionsMaxResults = 3
+    let suggestionsMaxResults = 3
     
     func getQuestions(completionHandler: (result: [PFObject]!, error: String?) -> Void){
         let query = PFQuery(className: "question")
-        query.limit = queryLimit
+        query.limit = questionQueryLimit
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                if let objectsUnwrapped = objects {
+                    completionHandler(result: objectsUnwrapped, error: nil)
+                }
+            } else {
+                completionHandler(result: nil, error: self.NETWORK_INACCESSIBLE)
+            }
+        }
+    }
+    
+    func getSuggestions(completionHandler: (result: [PFObject]!, error: String?) -> Void){
+        let query = PFQuery(className: "suggestion")
+        query.limit = suggestionQueryLimit
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
@@ -45,9 +62,9 @@ class ParseAPIClient {
         }
     }
     
-    func getFirstShuffledQuestions(objects: [PFObject]) -> [PFObject]{
+    func getFirstShuffled(objects: [PFObject], number: Int) -> [PFObject]{
         let shuffled = GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(objects) as! [PFObject]
-        return Array<PFObject>(shuffled[0..<self.maxResults])
+        return Array<PFObject>(shuffled[0..<number])
     }
     
     func pinLocallyAScore(score: Int, total: Int){

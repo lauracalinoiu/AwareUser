@@ -30,6 +30,7 @@
 		D3F6E3441BE7480700FAEC59 /* ParseAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F6E3431BE7480700FAEC59 /* ParseAPIClient.swift */; };
 		D3F9D08A1BE96DDB00305D08 /* ResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F9D0891BE96DDB00305D08 /* ResultsController.swift */; };
 		D3F9D08C1BE9FD3F00305D08 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F9D08B1BE9FD3F00305D08 /* HistoryViewController.swift */; };
+		D3FF47F81BEB5BF000B2832B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FF47F71BEB5BF000B2832B /* LoginController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		D3F6E3431BE7480700FAEC59 /* ParseAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseAPIClient.swift; sourceTree = "<group>"; };
 		D3F9D0891BE96DDB00305D08 /* ResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsController.swift; sourceTree = "<group>"; };
 		D3F9D08B1BE9FD3F00305D08 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		D3FF47F71BEB5BF000B2832B /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				D318AC551BE89D300025160D /* AnswersCell.swift */,
 				D3F9D0891BE96DDB00305D08 /* ResultsController.swift */,
 				D3F9D08B1BE9FD3F00305D08 /* HistoryViewController.swift */,
+				D3FF47F71BEB5BF000B2832B /* LoginController.swift */,
 				D3DE84061BE452DA00261796 /* Main.storyboard */,
 				D3DE84091BE452DA00261796 /* Assets.xcassets */,
 				D3DE840B1BE452DA00261796 /* LaunchScreen.storyboard */,
@@ -206,6 +209,7 @@
 				D318AC521BE897520025160D /* CheckBox.swift in Sources */,
 				D3DE84051BE452DA00261796 /* ViewController.swift in Sources */,
 				D318AC561BE89D300025160D /* AnswersCell.swift in Sources */,
+				D3FF47F81BEB5BF000B2832B /* LoginController.swift in Sources */,
 				D3DE84031BE452DA00261796 /* AppDelegate.swift in Sources */,
 				D3F6E3441BE7480700FAEC59 /* ParseAPIClient.swift in Sources */,
 				D3F9D08A1BE96DDB00305D08 /* ResultsController.swift in Sources */,

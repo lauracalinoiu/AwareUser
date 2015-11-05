@@ -37,7 +37,7 @@ class ViewController: UIViewController {
             guard results != nil else {
                 return
             }
-            self.questionArray = ParseAPIClient.sharedInstance.getFirstShuffledQuestions(results)
+            self.questionArray = ParseAPIClient.sharedInstance.getFirstShuffled(results, number: ParseAPIClient.sharedInstance.questionsMaxResults)
             self.setUpQuestionLabel()
             completionHandler()
         }
