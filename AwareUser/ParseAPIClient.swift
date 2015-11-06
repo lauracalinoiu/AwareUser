@@ -18,9 +18,22 @@ class ParseAPIClient {
     let questionsMaxResults = 3
     let suggestionsMaxResults = 3
     
-    func getQuestions(completionHandler: (result: [PFObject]!, error: String?) -> Void){
+    func getQuestionsWithLimit(completionHandler: (result: [PFObject]!, error: String?) -> Void){
         let query = PFQuery(className: "question")
         query.limit = questionQueryLimit
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                if let objectsUnwrapped = objects {
+                    completionHandler(result: objectsUnwrapped, error: nil)
+                }
+            } else {
+                completionHandler(result: nil, error: self.NETWORK_INACCESSIBLE)
+            }
+        }
+    }
+    func getAllQuestions(completionHandler: (result: [PFObject]!, error: String?) -> Void){
+        let query = PFQuery(className: "question")
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {

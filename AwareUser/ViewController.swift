@@ -23,14 +23,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getQuestionsFromParse(){
-            self.getPossibleAnswersFromParse()
+        getQuestions(){
+            self.getPossibleAnswers()
         }
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Play, target: self, action: "submitAnswers:")
     }
     
-    func getQuestionsFromParse(completionHandler: () -> ()){
-        ParseAPIClient.sharedInstance.getQuestions(){ [unowned self] results, error in
+    func getQuestions(completionHandler: () -> ()){
+        ParseAPIClient.sharedInstance.getQuestionsWithLimit(){ [unowned self] results, error in
             guard error == nil else {
                 return
             }
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func getPossibleAnswersFromParse(){
+    func getPossibleAnswers(){
         let thisQuestion = self.questionArray[self.questionIndex]
         ParseAPIClient.sharedInstance.getAnswersForQuestion(thisQuestion){ [unowned self] results, error in
             
@@ -94,7 +94,7 @@ class ViewController: UIViewController {
             questionIndex++
             answersTable.deleteAllAnswers()
             setUpQuestionLabel()
-            getPossibleAnswersFromParse()
+            getPossibleAnswers()
         }
     }
     
