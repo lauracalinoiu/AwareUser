@@ -48,12 +48,13 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.textLabel!.text = questionArray[indexPath.row]["text"] as? String
         return cell
     }
-    
-//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        return UITableViewAutomaticDimension
-//    }
-//    
-//    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
-//        return UITableViewAutomaticDimension
-//    }
+  
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "editQuestion") {
+            let controller = segue.destinationViewController as! EditQuestionController
+            let indexPath = questionTable.indexPathForCell(sender as! UITableViewCell)
+            let question = questionArray[indexPath!.row]
+           controller.question = question
+        }
+    }
 }

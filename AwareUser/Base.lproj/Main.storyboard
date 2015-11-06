@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ReN-MZ-eWJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="22a-46-FtI">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -314,7 +314,7 @@
             </objects>
             <point key="canvasLocation" x="244.99999999999997" y="1020"/>
         </scene>
-        <!--Question View Controller-->
+        <!--Questions-->
         <scene sceneID="dha-vn-Zlt">
             <objects>
                 <viewController id="xA4-an-qan" customClass="QuestionViewController" customModule="AwareUser" customModuleProvider="target" sceneMemberID="viewController">
@@ -326,13 +326,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QZO-Bi-56h">
-                                <rect key="frame" x="0.0" y="34" width="600" height="517"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="QZO-Bi-56h">
+                                <rect key="frame" x="0.0" y="-48" width="600" height="487"/>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="questionCell" textLabel="mBo-zx-2nl" style="IBUITableViewCellStyleDefault" id="Jxg-BT-cXI">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="114" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jxg-BT-cXI" id="zml-eG-jcm">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -350,6 +351,9 @@
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <segue destination="bYr-KE-kiL" kind="show" identifier="editQuestion" id="RyQ-Cf-P09"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -361,13 +365,13 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="QZO-Bi-56h" firstAttribute="top" secondItem="ZUf-hN-Nzz" secondAttribute="topMargin" constant="34" id="8CX-y5-52D"/>
-                            <constraint firstItem="QZO-Bi-56h" firstAttribute="leading" secondItem="ZUf-hN-Nzz" secondAttribute="leadingMargin" constant="-20" id="AUr-x3-ufB"/>
-                            <constraint firstItem="0gi-y7-Im9" firstAttribute="top" secondItem="QZO-Bi-56h" secondAttribute="bottom" id="Eub-5r-5V7"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="QZO-Bi-56h" secondAttribute="trailing" constant="-20" id="myu-bL-xOm"/>
+                            <constraint firstItem="QZO-Bi-56h" firstAttribute="top" secondItem="ZUf-hN-Nzz" secondAttribute="topMargin" constant="-48" id="2Gl-Y8-zd4"/>
+                            <constraint firstAttribute="trailing" secondItem="QZO-Bi-56h" secondAttribute="trailing" id="Gnw-Vb-Gfr"/>
+                            <constraint firstItem="QZO-Bi-56h" firstAttribute="leading" secondItem="ZUf-hN-Nzz" secondAttribute="leading" id="a9v-l7-jjc"/>
+                            <constraint firstItem="0gi-y7-Im9" firstAttribute="top" secondItem="QZO-Bi-56h" secondAttribute="bottom" constant="112" id="fmX-Ez-FNe"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="rl2-Fo-HU2">
+                    <navigationItem key="navigationItem" title="Questions" id="rl2-Fo-HU2">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="X9Y-05-A3f">
                             <connections>
                                 <segue destination="bYr-KE-kiL" kind="show" id="QN4-nN-n6z"/>
@@ -376,7 +380,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="questionTable" destination="QZO-Bi-56h" id="LSR-jo-rkQ"/>
-                        <segue destination="bYr-KE-kiL" kind="show" id="nBB-ap-eGH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5cN-sq-uZh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -386,7 +389,7 @@
         <!--New Question-->
         <scene sceneID="W0v-gJ-KTw">
             <objects>
-                <viewController id="bYr-KE-kiL" sceneMemberID="viewController">
+                <viewController id="bYr-KE-kiL" customClass="EditQuestionController" customModule="AwareUser" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qUR-5i-uGr"/>
                         <viewControllerLayoutGuide type="bottom" id="V9I-Ly-3KH"/>
@@ -395,13 +398,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" keyboardDismissMode="onDrag" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="XNw-zK-na8">
-                                <rect key="frame" x="15" y="87" width="585" height="143"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.0" green="0.41176470588235292" blue="0.85098039215686272" alpha="0.052259290540540543" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDP-bC-B5M">
                                 <rect key="frame" x="15" y="285" width="105" height="30"/>
                                 <animations/>
@@ -434,6 +430,13 @@
                                 <animations/>
                                 <state key="normal" title="Add"/>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" layoutMarginsFollowReadableWidth="YES" bounces="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="XNw-zK-na8">
+                                <rect key="frame" x="15" y="85" width="585" height="143"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.0" green="0.41176470588235292" blue="0.85098039215686272" alpha="0.052259290540540543" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                            </textView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -457,6 +460,9 @@
                         <barButtonItem key="rightBarButtonItem" title="Done" id="3i6-pg-K5T"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="questionTextView" destination="XNw-zK-na8" id="Y04-cU-TGB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xCd-uh-HSq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -672,7 +678,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nBB-ap-eGH"/>
+        <segue reference="RyQ-Cf-P09"/>
         <segue reference="wm1-lP-MJs"/>
     </inferredMetricsTieBreakers>
 </document>

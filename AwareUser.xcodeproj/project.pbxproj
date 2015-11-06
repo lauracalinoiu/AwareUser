@@ -16,6 +16,7 @@
 		D3DE84081BE452DA00261796 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3DE84061BE452DA00261796 /* Main.storyboard */; };
 		D3DE840A1BE452DA00261796 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3DE84091BE452DA00261796 /* Assets.xcassets */; };
 		D3DE840D1BE452DA00261796 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3DE840B1BE452DA00261796 /* LaunchScreen.storyboard */; };
+		D3E097481BED440B00182A23 /* EditQuestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E097471BED440A00182A23 /* EditQuestionController.swift */; };
 		D3F6E32D1BE63C4600FAEC59 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3F6E32B1BE63C4600FAEC59 /* Bolts.framework */; };
 		D3F6E32E1BE63C4600FAEC59 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3F6E32C1BE63C4600FAEC59 /* Parse.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		D3F6E3391BE6510A00FAEC59 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3F6E32F1BE6510A00FAEC59 /* AudioToolbox.framework */; };
@@ -46,6 +47,7 @@
 		D3DE84091BE452DA00261796 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3DE840C1BE452DA00261796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3DE840E1BE452DA00261796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3E097471BED440A00182A23 /* EditQuestionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditQuestionController.swift; sourceTree = "<group>"; };
 		D3F6E32B1BE63C4600FAEC59 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		D3F6E32C1BE63C4600FAEC59 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D3F6E32F1BE6510A00FAEC59 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -126,6 +128,7 @@
 				D3F9D08B1BE9FD3F00305D08 /* HistoryViewController.swift */,
 				D3FF47F71BEB5BF000B2832B /* LoginController.swift */,
 				D33A21AF1BECDD1D00BD3041 /* QuestionViewController.swift */,
+				D3E097471BED440A00182A23 /* EditQuestionController.swift */,
 				D3DE84061BE452DA00261796 /* Main.storyboard */,
 				D3DE84091BE452DA00261796 /* Assets.xcassets */,
 				D3DE840B1BE452DA00261796 /* LaunchScreen.storyboard */,
@@ -214,6 +217,7 @@
 				D318AC561BE89D300025160D /* AnswersCell.swift in Sources */,
 				D3FF47F81BEB5BF000B2832B /* LoginController.swift in Sources */,
 				D3DE84031BE452DA00261796 /* AppDelegate.swift in Sources */,
+				D3E097481BED440B00182A23 /* EditQuestionController.swift in Sources */,
 				D33A21B01BECDD1D00BD3041 /* QuestionViewController.swift in Sources */,
 				D3F6E3441BE7480700FAEC59 /* ParseAPIClient.swift in Sources */,
 				D3F9D08A1BE96DDB00305D08 /* ResultsController.swift in Sources */,
@@ -330,6 +334,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AwareUser",
@@ -337,7 +343,7 @@
 				INFOPLIST_FILE = AwareUser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-smurfs.com.AwareUser";
+				PRODUCT_BUNDLE_IDENTIFIER = "-smurfs.com.AwarenessUsr";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -346,6 +352,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AwareUser",
@@ -353,7 +361,7 @@
 				INFOPLIST_FILE = AwareUser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-smurfs.com.AwareUser";
+				PRODUCT_BUNDLE_IDENTIFIER = "-smurfs.com.AwarenessUsr";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
