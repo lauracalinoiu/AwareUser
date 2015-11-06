@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class EditQuestionController: UIViewController {
+class EditQuestionController: UITableViewController {
 
     @IBOutlet weak var questionTextView: UITextView!
     var question: PFObject!
