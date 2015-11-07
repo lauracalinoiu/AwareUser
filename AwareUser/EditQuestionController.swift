@@ -21,10 +21,27 @@ class EditQuestionController: UITableViewController{
         self.automaticallyAdjustsScrollViewInsets = false
         navigationItem.rightBarButtonItem =
             UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "onEdit:")
+        ParseAPIClient.sharedInstance.getAnswersForQuestion(question){
+            [unowned self] results, error in
+            
+            guard error == nil else {
+                return
+            }
+            guard results != nil else {
+                return
+            }
+            self.answersTableView.answers = results.map{ ( parseObj) -> Answer in
+                return Answer( text: parseObj["text"] as! String, isResponse: false)
+            }
+            dispatch_async(dispatch_get_main_queue()){
+                self.answersTableView.reloadData()
+            }
+        }
     }
     
     func onEdit(sender: AnyObject){
-        if (self.tableView.editing) {
+        
+        if (self.answersTableView.editing) {
             self.answersTableView.setEditing(false, animated: false)
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "onEdit:")
             questionTextView.editable = false
