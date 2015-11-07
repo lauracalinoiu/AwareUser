@@ -9,7 +9,7 @@
 import UIKit
 
 class AnswersTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
-
+    
     var answers: [Answer] = [Answer]()
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,18 +18,18 @@ class AnswersTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
         self.delegate = self
         self.editing = false
     }
-
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.editing {
             return answers.count+1
         }
         return answers.count
     }
-
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("answerCell", forIndexPath: indexPath) as! AnswerCellOnEdit
-        if indexPath.row >= answers.count && tableView.editing{
+        if indexPath.row >= answers.count{
             cell.textLabel?.text = "New row"
             cell.answerTextField.hidden = true
         } else {
@@ -53,19 +53,21 @@ class AnswersTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
         else if editingStyle == .Insert{
-//            self.performSegueWithIdentifier("insertNameSegue", sender:nil)
-            answers.append(Answer(text: "", isResponse: false))
+            answers.insert(Answer(text: "", isResponse: false), atIndex: indexPath.row)
             tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Top)
+            if indexPath.row>=answers.count{
+                 tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: answers.count, inSection: 0),atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+            }
         }
     }
     
     override func setEditing(editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         
-        let paths = NSIndexPath(forRow: 0, inSection: 0)
+        let paths = NSIndexPath(forRow: answers.count, inSection: 0)
         if editing{
-
             self.insertRowsAtIndexPaths([paths], withRowAnimation: UITableViewRowAnimation.Top)
+            self.scrollToRowAtIndexPath(paths, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
         } else {
             self.deleteRowsAtIndexPaths([paths], withRowAnimation: UITableViewRowAnimation.Top)
         }
