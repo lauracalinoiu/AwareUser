@@ -385,7 +385,7 @@
         <!--Edit Question Controller-->
         <scene sceneID="Od0-77-P0X">
             <objects>
-                <tableViewController id="HQO-1c-4F4" customClass="EditQuestionController" customModule="AwareUser" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="HQO-1c-4F4" customClass="EditQuestionController" customModule="AwareUser" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="B9Q-sg-ijd">
                         <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -401,7 +401,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="149"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="K6z-OO-T6s">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="K6z-OO-T6s">
                                                     <rect key="frame" x="10" y="0.0" width="590" height="149"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -424,57 +424,64 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Edit Answers" id="NxJ-FE-Cdp">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="239" id="syX-wa-fah">
-                                        <rect key="frame" x="0.0" y="251" width="600" height="239"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="185" id="syX-wa-fah">
+                                        <rect key="frame" x="0.0" y="251" width="600" height="185"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="syX-wa-fah" id="whX-Vz-d1k">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="238"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="184"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="54" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="XZW-Rg-a47">
-                                                    <rect key="frame" x="0.0" y="45" width="600" height="193"/>
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="54" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="XZW-Rg-a47" customClass="AnswersTableView" customModule="AwareUser" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="-39" width="600" height="238"/>
                                                     <animations/>
                                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="193" id="0K8-Bi-6SR"/>
+                                                        <constraint firstAttribute="height" constant="238" id="0K8-Bi-6SR"/>
                                                     </constraints>
                                                     <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="54" id="JPi-4r-k0m">
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="answerCell" rowHeight="54" id="JPi-4r-k0m" customClass="AnswerCellOnEdit" customModule="AwareUser" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="50" width="600" height="54"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JPi-4r-k0m" id="4vt-cG-xIn">
                                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eys-uX-vVh">
-                                                                        <rect key="frame" x="8" y="7" width="391" height="30"/>
-                                                                        <animations/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
-                                                                    </textField>
-                                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qbe-tQ-dTb">
+                                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qbe-tQ-dTb">
                                                                         <rect key="frame" x="534" y="8" width="51" height="31"/>
                                                                         <animations/>
                                                                     </switch>
+                                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eys-uX-vVh">
+                                                                        <rect key="frame" x="8" y="9" width="504" height="30"/>
+                                                                        <animations/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="504" id="RTC-2b-8SF"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
                                                                 </subviews>
                                                                 <animations/>
+                                                                <constraints>
+                                                                    <constraint firstItem="eys-uX-vVh" firstAttribute="leading" secondItem="4vt-cG-xIn" secondAttribute="leadingMargin" id="75v-zQ-JnB"/>
+                                                                    <constraint firstItem="eys-uX-vVh" firstAttribute="top" secondItem="4vt-cG-xIn" secondAttribute="topMargin" constant="1" id="GCF-4V-fhf"/>
+                                                                    <constraint firstItem="qbe-tQ-dTb" firstAttribute="top" secondItem="4vt-cG-xIn" secondAttribute="topMargin" id="Tss-Qx-HOG"/>
+                                                                    <constraint firstAttribute="trailingMargin" secondItem="eys-uX-vVh" secondAttribute="trailing" constant="80" id="hjH-AW-OnR"/>
+                                                                    <constraint firstAttribute="trailingMargin" secondItem="qbe-tQ-dTb" secondAttribute="trailing" constant="9" id="oZy-uS-CUd"/>
+                                                                </constraints>
                                                             </tableViewCellContentView>
                                                             <animations/>
+                                                            <connections>
+                                                                <outlet property="answerTextField" destination="eys-uX-vVh" id="JmC-55-kxO"/>
+                                                                <outlet property="isResponseOfQuestion" destination="qbe-tQ-dTb" id="f47-Rs-xPx"/>
+                                                            </connections>
                                                         </tableViewCell>
                                                     </prototypes>
                                                 </tableView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrl-7H-afD">
-                                                    <rect key="frame" x="8" y="8" width="22" height="22"/>
-                                                    <animations/>
-                                                </button>
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstItem="XZW-Rg-a47" firstAttribute="top" secondItem="Jrl-7H-afD" secondAttribute="bottom" constant="15" id="0el-lf-D2k"/>
-                                                <constraint firstAttribute="topMargin" secondItem="Jrl-7H-afD" secondAttribute="top" id="3Gu-9l-xh1"/>
-                                                <constraint firstAttribute="bottom" secondItem="XZW-Rg-a47" secondAttribute="bottom" id="6a7-6l-PnH"/>
+                                                <constraint firstAttribute="bottom" secondItem="XZW-Rg-a47" secondAttribute="bottom" constant="-15" id="6a7-6l-PnH"/>
                                                 <constraint firstAttribute="trailing" secondItem="XZW-Rg-a47" secondAttribute="trailing" id="7Ie-gN-v81"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="Jrl-7H-afD" secondAttribute="leading" id="ell-XQ-KgG"/>
                                                 <constraint firstItem="XZW-Rg-a47" firstAttribute="leading" secondItem="whX-Vz-d1k" secondAttribute="leading" id="rhT-r2-6oy"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -491,6 +498,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="vlF-T3-ZC2"/>
                     <connections>
+                        <outlet property="answersTableView" destination="XZW-Rg-a47" id="2qP-LZ-Wkb"/>
                         <outlet property="questionTextView" destination="K6z-OO-T6s" id="tYS-ow-4VH"/>
                     </connections>
                 </tableViewController>
