@@ -13,6 +13,7 @@
 		D33A21B01BECDD1D00BD3041 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33A21AF1BECDD1D00BD3041 /* QuestionViewController.swift */; };
 		D35991381BED847A00B4E4DA /* AnswerCellOnEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35991371BED847A00B4E4DA /* AnswerCellOnEdit.swift */; };
 		D359913A1BED8A2000B4E4DA /* AnswersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35991391BED8A2000B4E4DA /* AnswersTableView.swift */; };
+		D398F1CB1BEF529800BD236E /* EditAnswerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D398F1CA1BEF529800BD236E /* EditAnswerController.swift */; };
 		D3DE84031BE452DA00261796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DE84021BE452DA00261796 /* AppDelegate.swift */; };
 		D3DE84051BE452DA00261796 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DE84041BE452DA00261796 /* ViewController.swift */; };
 		D3DE84081BE452DA00261796 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3DE84061BE452DA00261796 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		D33A21AF1BECDD1D00BD3041 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		D35991371BED847A00B4E4DA /* AnswerCellOnEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerCellOnEdit.swift; sourceTree = "<group>"; };
 		D35991391BED8A2000B4E4DA /* AnswersTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswersTableView.swift; sourceTree = "<group>"; };
+		D398F1CA1BEF529800BD236E /* EditAnswerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAnswerController.swift; sourceTree = "<group>"; };
 		D3DE83FF1BE452DA00261796 /* AwareUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwareUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DE84021BE452DA00261796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3DE84041BE452DA00261796 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -132,9 +134,10 @@
 				D3F9D08B1BE9FD3F00305D08 /* HistoryViewController.swift */,
 				D3FF47F71BEB5BF000B2832B /* LoginController.swift */,
 				D33A21AF1BECDD1D00BD3041 /* QuestionViewController.swift */,
-				D3E097471BED440A00182A23 /* EditQuestionController.swift */,
 				D35991371BED847A00B4E4DA /* AnswerCellOnEdit.swift */,
+				D3E097471BED440A00182A23 /* EditQuestionController.swift */,
 				D35991391BED8A2000B4E4DA /* AnswersTableView.swift */,
+				D398F1CA1BEF529800BD236E /* EditAnswerController.swift */,
 				D3DE84061BE452DA00261796 /* Main.storyboard */,
 				D3DE84091BE452DA00261796 /* Assets.xcassets */,
 				D3DE840B1BE452DA00261796 /* LaunchScreen.storyboard */,
@@ -226,6 +229,7 @@
 				D3DE84031BE452DA00261796 /* AppDelegate.swift in Sources */,
 				D3E097481BED440B00182A23 /* EditQuestionController.swift in Sources */,
 				D33A21B01BECDD1D00BD3041 /* QuestionViewController.swift in Sources */,
+				D398F1CB1BEF529800BD236E /* EditAnswerController.swift in Sources */,
 				D35991381BED847A00B4E4DA /* AnswerCellOnEdit.swift in Sources */,
 				D3F6E3441BE7480700FAEC59 /* ParseAPIClient.swift in Sources */,
 				D3F9D08A1BE96DDB00305D08 /* ResultsController.swift in Sources */,

@@ -11,6 +11,7 @@ import UIKit
 class AnswersTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     
     var answers: [Answer] = [Answer]()
+    var segueDelegate: SegueDelegate!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,16 +32,17 @@ class AnswersTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCellWithIdentifier("answerCell", forIndexPath: indexPath) as! AnswerCellOnEdit
         if indexPath.row >= answers.count {
             cell.textLabel?.text = "insert new row"
+             cell.answerButton.setTitle("", forState: UIControlState.Normal)
         } else {
             cell.textLabel?.text = ""
-            cell.answerLabel.text = answers[indexPath.row].text
+            cell.answerButton.setTitle(answers[indexPath.row].text, forState: UIControlState.Normal)
+            cell.answerButton.enabled = tableView.editing
             cell.isResponseOfQuestion.on = answers[indexPath.row].isResponse
             cell.isResponseOfQuestion.enabled = tableView.editing
         }
         cell.showsReorderControl = true
         return cell
     }
-    
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
@@ -63,6 +65,12 @@ class AnswersTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
         return .None
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if editing {
+            segueDelegate.makeSegue(tableView.cellForRowAtIndexPath(indexPath) as! AnswerCellOnEdit)
+        }
+    }
+    
     override func setEditing(editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: true)
         if editing{
@@ -75,17 +83,8 @@ class AnswersTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
     }
     
     func clearEmptyRows(){
-        
-        for a in answers {
-            print(a.text)
-        }
-        
         answers = answers.filter(){
             $0.text != ""
-        }
-        
-        for a in answers {
-            print(a.text)
         }
     }
 }

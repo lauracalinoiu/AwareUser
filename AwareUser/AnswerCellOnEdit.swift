@@ -9,7 +9,6 @@
 import UIKit
 
 class AnswerCellOnEdit: UITableViewCell {
-    @IBOutlet weak var answerLabel: UILabel!
+    @IBOutlet weak var answerButton: UIButton!
     @IBOutlet weak var isResponseOfQuestion: UISwitch!
-    
 }

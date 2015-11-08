@@ -9,11 +9,13 @@
 import UIKit
 import Parse
 
-class EditQuestionController: UITableViewController{
+class EditQuestionController: UITableViewController, SegueDelegate, AnswerDelegate{
     
     @IBOutlet weak var questionTextView: UITextView!
     var question: PFObject!
     @IBOutlet weak var answersTableView: AnswersTableView!
+    
+    var editableCell: AnswerCellOnEdit!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,5 +62,31 @@ class EditQuestionController: UITableViewController{
         answersTableView.clearEmptyRows()
         answersTableView.reloadData()
     }
+    
+    func makeSegue(cell: AnswerCellOnEdit) {
+        editableCell = cell
+        performSegueWithIdentifier("editAnswer", sender: cell)
+    }
+    
+    func updateData(data: String, cell: AnswerCellOnEdit) {
+        cell.answerButton.setTitle(data, forState: .Normal)
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "editAnswer" {
+            let vc = segue.destinationViewController as! EditAnswerController
+            vc.answerText = editableCell.answerButton.titleLabel?.text
+            vc.cell = editableCell
+            vc.delegate = self
+        }
+    }
+}
+
+protocol SegueDelegate{
+    func makeSegue(cell: AnswerCellOnEdit) -> ()
+}
+
+protocol AnswerDelegate {
+    func updateData(data: String, cell: AnswerCellOnEdit)
 }
 
