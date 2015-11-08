@@ -12,8 +12,8 @@ class EditAnswerController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var textView: UITextView!
     var answerText: String!
-    var delegate: AnswerDelegate!
     var cell: AnswerCellOnEdit!
+    var delegateForMessage: MessageDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,8 @@ class EditAnswerController: UIViewController, UITextViewDelegate {
     
     func donePressed(){
         //saveAnswer()
+        delegateForMessage.storeMessage(textView.text)
         self.navigationController?.popViewControllerAnimated(true)
-        self.delegate.updateData(answerText, cell: cell)
+        
     }
 }

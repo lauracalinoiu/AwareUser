@@ -9,12 +9,12 @@
 import UIKit
 import Parse
 
-class EditQuestionController: UITableViewController, SegueDelegate, AnswerDelegate{
+class EditQuestionController: UITableViewController, SegueDelegate, MessageDelegate{
     
     @IBOutlet weak var questionTextView: UITextView!
     var question: PFObject!
     @IBOutlet weak var answersTableView: AnswersTableView!
-    
+    var cellId: Int = 0
     var editableCell: AnswerCellOnEdit!
     
     override func viewDidLoad() {
@@ -23,6 +23,7 @@ class EditQuestionController: UITableViewController, SegueDelegate, AnswerDelega
         self.automaticallyAdjustsScrollViewInsets = false
         navigationItem.rightBarButtonItem =
             UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "onEdit:")
+        answersTableView.delegateForSegue = self
         getAnswers()
     }
     
@@ -58,35 +59,31 @@ class EditQuestionController: UITableViewController, SegueDelegate, AnswerDelega
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "editAnswer" {
+            let vc = segue.destinationViewController as! EditAnswerController
+            let row = sender as! Int
+            editableCell = answersTableView.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0)) as! AnswerCellOnEdit
+            vc.answerText = editableCell.answerButton.titleLabel?.text
+            vc.delegateForMessage = self
+        }
+    }
+    
+    func performSegue(row: Int) {
+        performSegueWithIdentifier("editAnswer", sender: row)
+    }
+    
     func saveData(){
         answersTableView.clearEmptyRows()
         answersTableView.reloadData()
     }
     
-    func makeSegue(cell: AnswerCellOnEdit) {
-        editableCell = cell
-        performSegueWithIdentifier("editAnswer", sender: cell)
-    }
-    
-    func updateData(data: String, cell: AnswerCellOnEdit) {
-        cell.answerButton.setTitle(data, forState: .Normal)
-    }
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "editAnswer" {
-            let vc = segue.destinationViewController as! EditAnswerController
-            vc.answerText = editableCell.answerButton.titleLabel?.text
-            vc.cell = editableCell
-            vc.delegate = self
-        }
+    func storeMessage(text: String) {
+        editableCell.answerButton.setTitle(text, forState: .Normal)
     }
 }
 
-protocol SegueDelegate{
-    func makeSegue(cell: AnswerCellOnEdit) -> ()
-}
-
-protocol AnswerDelegate {
-    func updateData(data: String, cell: AnswerCellOnEdit)
+protocol MessageDelegate{
+    func storeMessage(text: String)
 }
 

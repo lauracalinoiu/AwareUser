@@ -179,7 +179,7 @@
                     <navigationItem key="navigationItem" title="Score" id="Azl-pB-nYp">
                         <barButtonItem key="rightBarButtonItem" title="History" id="UUv-El-QQG">
                             <connections>
-                                <segue destination="efJ-i4-oMw" kind="show" id="obl-Rh-Lfl"/>
+                                <segue destination="efJ-i4-oMw" kind="show" identifier="resultToHistory" id="obl-Rh-Lfl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -254,7 +254,7 @@
                     <navigationItem key="navigationItem" title="History" id="hfx-Vp-9qC">
                         <barButtonItem key="rightBarButtonItem" title="Take test" id="2KL-41-337">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="wm1-lP-MJs"/>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="historyToQuiz" id="wm1-lP-MJs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -459,9 +459,6 @@
                                                                         <state key="disabled">
                                                                             <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                         </state>
-                                                                        <connections>
-                                                                            <segue destination="7Ct-x7-HAO" kind="show" identifier="editAnswer" id="uB2-0T-Rir"/>
-                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <animations/>
@@ -505,6 +502,7 @@
                     <connections>
                         <outlet property="answersTableView" destination="XZW-Rg-a47" id="2qP-LZ-Wkb"/>
                         <outlet property="questionTextView" destination="K6z-OO-T6s" id="tYS-ow-4VH"/>
+                        <segue destination="7Ct-x7-HAO" kind="show" identifier="editAnswer" id="1HF-BF-0gz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vYB-cc-04z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -759,6 +757,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Cef-p3-j8E"/>
+        <segue reference="wm1-lP-MJs"/>
     </inferredMetricsTieBreakers>
 </document>

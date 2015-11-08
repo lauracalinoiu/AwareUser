@@ -11,7 +11,7 @@ import UIKit
 class AnswersTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     
     var answers: [Answer] = [Answer]()
-    var segueDelegate: SegueDelegate!
+    var delegateForSegue: SegueDelegate!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,12 +36,17 @@ class AnswersTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
         } else {
             cell.textLabel?.text = ""
             cell.answerButton.setTitle(answers[indexPath.row].text, forState: UIControlState.Normal)
-            cell.answerButton.enabled = tableView.editing
+            cell.answerButton.tag = indexPath.row
+            cell.answerButton.addTarget(self, action: "editAnswerClicked:", forControlEvents: UIControlEvents.TouchDown)
             cell.isResponseOfQuestion.on = answers[indexPath.row].isResponse
             cell.isResponseOfQuestion.enabled = tableView.editing
         }
         cell.showsReorderControl = true
         return cell
+    }
+    
+    func editAnswerClicked(sender: UIButton!){
+        delegateForSegue.performSegue(sender.tag)
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -55,6 +60,7 @@ class AnswersTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
             tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: answers.count, inSection: 0), atScrollPosition: .Top, animated: true)
         }
     }
+    
     func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
         if tableView.editing{
             if indexPath.row >= answers.count{
@@ -63,12 +69,6 @@ class AnswersTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
             return .Delete
         }
         return .None
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if editing {
-            segueDelegate.makeSegue(tableView.cellForRowAtIndexPath(indexPath) as! AnswerCellOnEdit)
-        }
     }
     
     override func setEditing(editing: Bool, animated: Bool) {
@@ -82,6 +82,9 @@ class AnswersTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
         }
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("HERE!!!")
+    }
     func clearEmptyRows(){
         answers = answers.filter(){
             $0.text != ""
@@ -93,3 +96,8 @@ struct Answer{
     var text: String
     var isResponse: Bool = false
 }
+
+protocol SegueDelegate{
+    func performSegue(row: Int) -> Void
+}
+
