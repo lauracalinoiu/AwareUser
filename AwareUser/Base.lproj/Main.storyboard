@@ -446,32 +446,33 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sa-S7-z3b">
+                                                                        <rect key="frame" x="21" y="8" width="487" height="31"/>
+                                                                        <animations/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
                                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qbe-tQ-dTb">
                                                                         <rect key="frame" x="534" y="8" width="51" height="31"/>
                                                                         <animations/>
                                                                     </switch>
-                                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eys-uX-vVh">
-                                                                        <rect key="frame" x="8" y="9" width="504" height="30"/>
-                                                                        <animations/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" constant="504" id="RTC-2b-8SF"/>
-                                                                        </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
-                                                                    </textField>
                                                                 </subviews>
                                                                 <animations/>
                                                                 <constraints>
-                                                                    <constraint firstItem="eys-uX-vVh" firstAttribute="leading" secondItem="4vt-cG-xIn" secondAttribute="leadingMargin" id="75v-zQ-JnB"/>
-                                                                    <constraint firstItem="eys-uX-vVh" firstAttribute="top" secondItem="4vt-cG-xIn" secondAttribute="topMargin" constant="1" id="GCF-4V-fhf"/>
+                                                                    <constraint firstItem="qbe-tQ-dTb" firstAttribute="leading" secondItem="7sa-S7-z3b" secondAttribute="trailing" constant="26" id="8g2-m1-hlB"/>
+                                                                    <constraint firstAttribute="trailingMargin" secondItem="qbe-tQ-dTb" secondAttribute="trailing" constant="9" id="F5D-on-my8"/>
+                                                                    <constraint firstItem="7sa-S7-z3b" firstAttribute="top" secondItem="qbe-tQ-dTb" secondAttribute="top" id="G8j-Vj-xIk"/>
                                                                     <constraint firstItem="qbe-tQ-dTb" firstAttribute="top" secondItem="4vt-cG-xIn" secondAttribute="topMargin" id="Tss-Qx-HOG"/>
-                                                                    <constraint firstAttribute="trailingMargin" secondItem="eys-uX-vVh" secondAttribute="trailing" constant="80" id="hjH-AW-OnR"/>
+                                                                    <constraint firstItem="7sa-S7-z3b" firstAttribute="bottom" secondItem="qbe-tQ-dTb" secondAttribute="bottom" id="Uj4-n4-NTU"/>
+                                                                    <constraint firstAttribute="trailingMargin" secondItem="7sa-S7-z3b" secondAttribute="trailing" constant="84" id="ZiQ-YY-rEx"/>
+                                                                    <constraint firstItem="7sa-S7-z3b" firstAttribute="leading" secondItem="4vt-cG-xIn" secondAttribute="leadingMargin" constant="13" id="lUe-3R-hu5"/>
                                                                     <constraint firstAttribute="trailingMargin" secondItem="qbe-tQ-dTb" secondAttribute="trailing" constant="9" id="oZy-uS-CUd"/>
                                                                 </constraints>
                                                             </tableViewCellContentView>
                                                             <animations/>
                                                             <connections>
-                                                                <outlet property="answerTextField" destination="eys-uX-vVh" id="JmC-55-kxO"/>
+                                                                <outlet property="answerLabel" destination="7sa-S7-z3b" id="e4j-NU-Vn7"/>
                                                                 <outlet property="isResponseOfQuestion" destination="qbe-tQ-dTb" id="f47-Rs-xPx"/>
                                                             </connections>
                                                         </tableViewCell>

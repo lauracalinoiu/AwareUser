@@ -9,8 +9,7 @@
 import UIKit
 
 class AnswerCellOnEdit: UITableViewCell {
-
-    @IBOutlet weak var answerTextField: UITextField!
+    @IBOutlet weak var answerLabel: UILabel!
     @IBOutlet weak var isResponseOfQuestion: UISwitch!
     
 }

@@ -29,14 +29,13 @@ class AnswersTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("answerCell", forIndexPath: indexPath) as! AnswerCellOnEdit
-        
-        print("\(indexPath.row), \(answers.count)")
         if indexPath.row >= answers.count {
             cell.textLabel?.text = "insert new row"
         } else {
             cell.textLabel?.text = ""
-            cell.answerTextField.text = answers[indexPath.row].text
-            cell.isResponseOfQuestion.selected = false
+            cell.answerLabel.text = answers[indexPath.row].text
+            cell.isResponseOfQuestion.on = answers[indexPath.row].isResponse
+            cell.isResponseOfQuestion.enabled = tableView.editing
         }
         cell.showsReorderControl = true
         return cell
@@ -66,17 +65,29 @@ class AnswersTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
     
     override func setEditing(editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: true)
-        //self.setEditing(editing, animated: true)
-        
         if editing{
             self.insertRowsAtIndexPaths([NSIndexPath(forRow: answers.count, inSection: 0)], withRowAnimation: .Top)
             self.scrollToRowAtIndexPath(NSIndexPath(forRow: answers.count, inSection: 0), atScrollPosition: .Top, animated: true)
+            reloadData()
         } else {
             self.deleteRowsAtIndexPaths([NSIndexPath(forRow: answers.count, inSection: 0)], withRowAnimation: .Top)
         }
-        
     }
     
+    func clearEmptyRows(){
+        
+        for a in answers {
+            print(a.text)
+        }
+        
+        answers = answers.filter(){
+            $0.text != ""
+        }
+        
+        for a in answers {
+            print(a.text)
+        }
+    }
 }
 
 struct Answer{

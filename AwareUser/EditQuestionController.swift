@@ -21,6 +21,10 @@ class EditQuestionController: UITableViewController{
         self.automaticallyAdjustsScrollViewInsets = false
         navigationItem.rightBarButtonItem =
             UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "onEdit:")
+        getAnswers()
+    }
+    
+    func getAnswers(){
         ParseAPIClient.sharedInstance.getAnswersForQuestion(question){
             [unowned self] results, error in
             
@@ -31,7 +35,7 @@ class EditQuestionController: UITableViewController{
                 return
             }
             self.answersTableView.answers = results.map{ ( parseObj) -> Answer in
-                return Answer( text: parseObj["text"] as! String, isResponse: false)
+                return Answer( text: parseObj["text"] as! String, isResponse: parseObj["is_answer"] as! Bool)
             }
             dispatch_async(dispatch_get_main_queue()){
                 self.answersTableView.reloadData()
@@ -40,16 +44,21 @@ class EditQuestionController: UITableViewController{
     }
     
     func onEdit(sender: AnyObject){
-        
         if (self.answersTableView.editing) {
             self.answersTableView.setEditing(false, animated: false)
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "onEdit:")
             questionTextView.editable = false
+            saveData()
         } else {
             self.answersTableView.setEditing(true, animated: true)
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "onEdit:")
             questionTextView.editable = true
         }
+    }
+    
+    func saveData(){
+        answersTableView.clearEmptyRows()
+        answersTableView.reloadData()
     }
 }
 
