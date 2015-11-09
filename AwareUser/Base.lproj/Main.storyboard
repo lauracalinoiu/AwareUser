@@ -371,9 +371,7 @@
                             <constraint firstItem="0gi-y7-Im9" firstAttribute="top" secondItem="QZO-Bi-56h" secondAttribute="bottom" id="fmX-Ez-FNe"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Questions" id="rl2-Fo-HU2">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="X9Y-05-A3f"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Questions" id="rl2-Fo-HU2"/>
                     <connections>
                         <outlet property="questionTable" destination="QZO-Bi-56h" id="LSR-jo-rkQ"/>
                     </connections>

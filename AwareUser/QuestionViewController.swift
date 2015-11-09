@@ -20,11 +20,16 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         questionTable.dataSource = self
         questionTable.rowHeight = UITableViewAutomaticDimension
         questionTable.estimatedRowHeight = 160.0
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: nil, action: "addNewQuestionWithAnswers:")
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         getQuestions()
+    }
+    
+    func addNewQuestionWithAnswers(sender: UIBarButtonItem!){
+        performSegueWithIdentifier("editQuestion", sender: nil)
     }
     
     func getQuestions(){
@@ -56,10 +61,17 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "editQuestion") {
             let controller = segue.destinationViewController as! EditQuestionController
-            let indexPath = questionTable.indexPathForCell(sender as! UITableViewCell)
-            let question = questionArray[indexPath!.row]
-            controller.question = question
-            controller.questionIndex = indexPath!.row
+            
+            if let cell = sender as? UITableViewCell {
+                let indexPath = questionTable.indexPathForCell(cell)
+                let question = questionArray[indexPath!.row]
+                controller.question = question
+                //controller.questionIndex = indexPath!.row
+            } else {
+                controller.question = PFObject(className: "question")
+                //controller.questionIndex = -1
+            }
+
         }
     }
 }
