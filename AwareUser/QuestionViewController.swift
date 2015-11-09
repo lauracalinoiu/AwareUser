@@ -40,7 +40,7 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func getQuestions(){
-        ParseAPIClient.sharedInstance.getQuestionsWithLimit(){ [unowned self] results, error in
+        ParseAPIClient.sharedInstance.getAllQuestions(){ [unowned self] results, error in
             guard error == nil else {
                 return
             }

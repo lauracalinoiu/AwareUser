@@ -31,7 +31,7 @@ class ResultsController: UIViewController {
     }
     
     func getSuggestionsFromParse(completionHandler: () -> ()){
-        ParseAPIClient.sharedInstance.getSuggestions(){ [unowned self] results, error in
+        ParseAPIClient.sharedInstance.getSuggestionsWithLimit(){ [unowned self] results, error in
             guard error == nil else {
                 return
             }

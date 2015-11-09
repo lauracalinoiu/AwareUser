@@ -57,7 +57,18 @@ class ParseAPIClient {
         }
     }
     
-    func getSuggestions(completionHandler: (result: [PFObject]!, error: String?) -> Void){
+    func saveSuggestion(suggestion: PFObject, completionHandler: (success: Bool, error: String!) -> Void){
+        suggestion.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                completionHandler(success: true, error: nil)
+            } else {
+                completionHandler(success: false, error: error?.description)
+            }
+        }
+    }
+    
+    func getSuggestionsWithLimit(completionHandler: (result: [PFObject]!, error: String?) -> Void){
         let query = PFQuery(className: "suggestion")
         query.limit = suggestionQueryLimit
         query.findObjectsInBackgroundWithBlock {
@@ -72,6 +83,20 @@ class ParseAPIClient {
         }
     }
     
+    func getAllSuggestions(completionHandler: (result: [PFObject]!, error: String?) -> Void){
+        let query = PFQuery(className: "suggestion")
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                if let objectsUnwrapped = objects {
+                    completionHandler(result: objectsUnwrapped, error: nil)
+                }
+            } else {
+                completionHandler(result: nil, error: self.NETWORK_INACCESSIBLE)
+            }
+        }
+    }
+
     func getAnswersForQuestion(question: PFObject , completionHandler: (result: [PFObject]!, error: String?) -> Void){
         let relation = question.relationForKey("answers")
         relation.query()?.findObjectsInBackgroundWithBlock {
