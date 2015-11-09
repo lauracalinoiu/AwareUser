@@ -15,6 +15,7 @@ class EditQuestionController: UITableViewController, SegueDelegate, MessageDeleg
     var question: PFObject!
     @IBOutlet weak var answersTableView: AnswersTableView!
     var editableRow: Int = 0
+    var isSegueFromNewQuestion = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,15 @@ class EditQuestionController: UITableViewController, SegueDelegate, MessageDeleg
         answersTableView.delegateForSegue = self
         questionTextView.delegate = self
         getAnswers()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if isSegueFromNewQuestion{
+            self.answersTableView.setEditing(true, animated: true)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "onEdit:")
+            questionTextView.editable = true
+        }
     }
     
     func getAnswers(){
@@ -52,6 +62,7 @@ class EditQuestionController: UITableViewController, SegueDelegate, MessageDeleg
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "onEdit:")
             questionTextView.editable = false
             saveData()
+            isSegueFromNewQuestion = false
         } else {
             self.answersTableView.setEditing(true, animated: true)
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "onEdit:")

@@ -24,12 +24,16 @@ class EditAnswerController: UIViewController, UITextViewDelegate {
         self.automaticallyAdjustsScrollViewInsets = false
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        textView.isFirstResponder()
+    }
+    
     func textViewDidEndEditing(textView: UITextView) {
         answerText = textView.text
     }
     
     func donePressed(){
-        //saveAnswer()
         delegateForMessage.storeMessage(textView.text)
         self.navigationController?.popViewControllerAnimated(true)
         

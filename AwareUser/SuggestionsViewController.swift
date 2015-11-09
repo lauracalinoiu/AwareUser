@@ -26,6 +26,7 @@ class SuggestionsViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         getSuggestions()
+        suggestionTable.reloadData()
     }
     
     
@@ -41,7 +42,7 @@ class SuggestionsViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func getSuggestions(){
-        ParseAPIClient.sharedInstance.getSuggestionsWithLimit(){ [unowned self] results, error in
+        ParseAPIClient.sharedInstance.getAllSuggestions(){ [unowned self] results, error in
             guard error == nil else {
                 return
             }
@@ -78,6 +79,7 @@ class SuggestionsViewController: UIViewController, UITableViewDataSource, UITabl
             let controller = segue.destinationViewController as! EditSuggestionController
             if let obj = sender as? PFObject {
                 controller.suggestion = obj
+                controller.fromNewSuggestionSegue = true
             }
         }
     }

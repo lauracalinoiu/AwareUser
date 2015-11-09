@@ -77,6 +77,7 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
             let controller = segue.destinationViewController as! EditQuestionController
             if let obj = sender as? PFObject {
                 controller.question = obj
+                controller.isSegueFromNewQuestion = true
             }
         }
     }

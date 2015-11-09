@@ -115,13 +115,13 @@
 		D34038CE1BF0A8FC00337B7D /* admin */ = {
 			isa = PBXGroup;
 			children = (
-				D33A21AF1BECDD1D00BD3041 /* QuestionViewController.swift */,
 				D34038CF1BF0AA3F00337B7D /* SuggestionsViewController.swift */,
+				D34038D11BF0AF4600337B7D /* EditSuggestionController.swift */,
 				D35991371BED847A00B4E4DA /* AnswerCellOnEdit.swift */,
+				D33A21AF1BECDD1D00BD3041 /* QuestionViewController.swift */,
 				D3E097471BED440A00182A23 /* EditQuestionController.swift */,
 				D35991391BED8A2000B4E4DA /* AnswersTableView.swift */,
 				D398F1CA1BEF529800BD236E /* EditAnswerController.swift */,
-				D34038D11BF0AF4600337B7D /* EditSuggestionController.swift */,
 			);
 			name = admin;
 			sourceTree = "<group>";
