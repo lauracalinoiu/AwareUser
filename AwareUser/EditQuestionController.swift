@@ -9,10 +9,11 @@
 import UIKit
 import Parse
 
-class EditQuestionController: UITableViewController, SegueDelegate, MessageDelegate{
+class EditQuestionController: UITableViewController, SegueDelegate, MessageDelegate, UITextViewDelegate{
     
     @IBOutlet weak var questionTextView: UITextView!
     var question: PFObject!
+    var questionIndex: Int = 0
     @IBOutlet weak var answersTableView: AnswersTableView!
     var editableRow: Int = 0
     
@@ -23,6 +24,7 @@ class EditQuestionController: UITableViewController, SegueDelegate, MessageDeleg
         navigationItem.rightBarButtonItem =
             UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "onEdit:")
         answersTableView.delegateForSegue = self
+        questionTextView.delegate = self
         getAnswers()
     }
     
@@ -71,12 +73,15 @@ class EditQuestionController: UITableViewController, SegueDelegate, MessageDeleg
         performSegueWithIdentifier("editAnswer", sender: row)
     }
     
+    func textViewDidChange(textView: UITextView) {
+        question["text"] = textView.text
+    }
+    
     func saveData(){
-        for a in answersTableView.answers{
-            print(a.text)
-        }
         answersTableView.clearEmptyRows()
         answersTableView.reloadData()
+        ParseAPIClient.sharedInstance.updateAnswersForQuestion(question, answers: answersTableView.answers)
+        navigationController?.popViewControllerAnimated(true)
     }
     
     func storeMessage(text: String) {
@@ -85,6 +90,8 @@ class EditQuestionController: UITableViewController, SegueDelegate, MessageDeleg
         answersTableView.reloadData()
         editableRow = -1
     }
+    
+    
 }
 
 protocol MessageDelegate{

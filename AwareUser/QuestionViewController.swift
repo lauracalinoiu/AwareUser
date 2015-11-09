@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 class QuestionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     var questionArray: [PFObject] = [PFObject]()
     @IBOutlet weak var questionTable: UITableView!
     
@@ -20,6 +20,10 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         questionTable.dataSource = self
         questionTable.rowHeight = UITableViewAutomaticDimension
         questionTable.estimatedRowHeight = 160.0
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         getQuestions()
     }
     
@@ -48,13 +52,14 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.textLabel!.text = questionArray[indexPath.row]["text"] as? String
         return cell
     }
-  
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "editQuestion") {
             let controller = segue.destinationViewController as! EditQuestionController
             let indexPath = questionTable.indexPathForCell(sender as! UITableViewCell)
             let question = questionArray[indexPath!.row]
-           controller.question = question
+            controller.question = question
+            controller.questionIndex = indexPath!.row
         }
     }
 }

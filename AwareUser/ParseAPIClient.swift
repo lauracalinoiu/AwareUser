@@ -46,6 +46,17 @@ class ParseAPIClient {
         }
     }
     
+    func saveQuestion(question: PFObject, completionHandler: (success: Bool, error: String!) -> Void){
+        question.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                completionHandler(success: true, error: nil)
+            } else {
+                completionHandler(success: false, error: error?.description)
+            }
+        }
+    }
+    
     func getSuggestions(completionHandler: (result: [PFObject]!, error: String?) -> Void){
         let query = PFQuery(className: "suggestion")
         query.limit = suggestionQueryLimit
@@ -73,6 +84,36 @@ class ParseAPIClient {
                 completionHandler(result: nil, error: self.NETWORK_INACCESSIBLE)
             }
         }
+    }
+    
+    func updateAnswersForQuestion(question: PFObject, answers: [Answer]){
+        let relation = question.relationForKey("answers")
+        let query = relation.query()
+        let array = try! query?.findObjects()
+        for object in array! {
+            relation.removeObject(object)
+        }
+        saveQuestion(question){ success, error in
+            if success{
+                print("Great!")
+            }
+        }
+        
+        for answer in answers{
+            let pfAnswer = PFObject(className:"answer")
+            pfAnswer["text"] = answer.text
+            pfAnswer["is_answer"] = answer.isResponse
+            
+            pfAnswer.saveInBackgroundWithBlock(){ _, _ in
+                relation.addObject(pfAnswer)
+                self.saveQuestion(question){ success, error in
+                    if success{
+                        print("saved!")
+                    }
+                }
+            }
+        }
+        
     }
     
     func getFirstShuffled(objects: [PFObject], number: Int) -> [PFObject]{
