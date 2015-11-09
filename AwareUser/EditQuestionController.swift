@@ -13,7 +13,6 @@ class EditQuestionController: UITableViewController, SegueDelegate, MessageDeleg
     
     @IBOutlet weak var questionTextView: UITextView!
     var question: PFObject!
-    var questionIndex: Int = 0
     @IBOutlet weak var answersTableView: AnswersTableView!
     var editableRow: Int = 0
     

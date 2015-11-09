@@ -20,7 +20,7 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         questionTable.dataSource = self
         questionTable.rowHeight = UITableViewAutomaticDimension
         questionTable.estimatedRowHeight = 160.0
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: nil, action: "addNewQuestionWithAnswers:")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addNewQuestionWithAnswers")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -28,8 +28,15 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         getQuestions()
     }
     
-    func addNewQuestionWithAnswers(sender: UIBarButtonItem!){
-        performSegueWithIdentifier("editQuestion", sender: nil)
+    func addNewQuestionWithAnswers(){
+        let question = PFObject(className: "question")
+        question["text"] = ""
+        ParseAPIClient.sharedInstance.saveQuestion(question){ [unowned self] success, err in
+            if success {
+                self.performSegueWithIdentifier("newQuestion", sender: question)
+            }
+        }
+
     }
     
     func getQuestions(){
@@ -61,17 +68,17 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "editQuestion") {
             let controller = segue.destinationViewController as! EditQuestionController
-            
             if let cell = sender as? UITableViewCell {
                 let indexPath = questionTable.indexPathForCell(cell)
                 let question = questionArray[indexPath!.row]
                 controller.question = question
-                //controller.questionIndex = indexPath!.row
-            } else {
-                controller.question = PFObject(className: "question")
-                //controller.questionIndex = -1
             }
-
+        } else if (segue.identifier == "newQuestion") {
+            let controller = segue.destinationViewController as! EditQuestionController
+            if let obj = sender as? PFObject {
+                controller.question = obj
+            }
         }
     }
+    
 }

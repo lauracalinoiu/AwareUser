@@ -374,7 +374,7 @@
                     <navigationItem key="navigationItem" title="Questions" id="rl2-Fo-HU2"/>
                     <connections>
                         <outlet property="questionTable" destination="QZO-Bi-56h" id="LSR-jo-rkQ"/>
-                        <segue destination="HQO-1c-4F4" kind="show" identifier="newQuestion" id="E4Z-Ra-EWy"/>
+                        <segue destination="HQO-1c-4F4" kind="show" identifier="newQuestion" id="0uJ-Vq-BVB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5cN-sq-uZh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -758,6 +758,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="wm1-lP-MJs"/>
-        <segue reference="E4Z-Ra-EWy"/>
+        <segue reference="0uJ-Vq-BVB"/>
     </inferredMetricsTieBreakers>
 </document>
