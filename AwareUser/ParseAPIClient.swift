@@ -89,29 +89,34 @@ class ParseAPIClient {
     func updateAnswersForQuestion(question: PFObject, answers: [Answer]){
         let relation = question.relationForKey("answers")
         let query = relation.query()
-        let array = try! query?.findObjects()
-        for object in array! {
-            relation.removeObject(object)
-        }
-        saveQuestion(question){ success, error in
-            if success{
-                print("Great!")
+        query!.findObjectsInBackgroundWithBlock(){ [unowned self]
+            (array: [PFObject]?, error: NSError?) -> Void in
+           
+            for object in array! {
+                relation.removeObject(object)
+                object.deleteInBackground()
             }
-        }
-        
-        for answer in answers{
-            let pfAnswer = PFObject(className:"answer")
-            pfAnswer["text"] = answer.text
-            pfAnswer["is_answer"] = answer.isResponse
+            self.saveQuestion(question){ success, error in
+                if success{
+                    print("Great!")
+                }
+            }
             
-            pfAnswer.saveInBackgroundWithBlock(){ _, _ in
-                relation.addObject(pfAnswer)
-                self.saveQuestion(question){ success, error in
-                    if success{
-                        print("saved!")
+            for answer in answers{
+                let pfAnswer = PFObject(className:"answer")
+                pfAnswer["text"] = answer.text
+                pfAnswer["is_answer"] = answer.isResponse
+                
+                pfAnswer.saveInBackgroundWithBlock(){ _, _ in
+                    relation.addObject(pfAnswer)
+                    self.saveQuestion(question){ success, error in
+                        if success{
+                            print("saved!")
+                        }
                     }
                 }
             }
+            
         }
         
     }
