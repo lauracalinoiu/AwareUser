@@ -14,8 +14,7 @@ class EditQuestionController: UITableViewController, SegueDelegate, MessageDeleg
     @IBOutlet weak var questionTextView: UITextView!
     var question: PFObject!
     @IBOutlet weak var answersTableView: AnswersTableView!
-    var cellId: Int = 0
-    var editableCell: AnswerCellOnEdit!
+    var editableRow: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,9 +61,8 @@ class EditQuestionController: UITableViewController, SegueDelegate, MessageDeleg
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "editAnswer" {
             let vc = segue.destinationViewController as! EditAnswerController
-            let row = sender as! Int
-            editableCell = answersTableView.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0)) as! AnswerCellOnEdit
-            vc.answerText = editableCell.answerButton.titleLabel?.text
+            editableRow = sender as! Int
+            vc.answerText = answersTableView.answers[editableRow].text
             vc.delegateForMessage = self
         }
     }
@@ -74,12 +72,18 @@ class EditQuestionController: UITableViewController, SegueDelegate, MessageDeleg
     }
     
     func saveData(){
+        for a in answersTableView.answers{
+            print(a.text)
+        }
         answersTableView.clearEmptyRows()
         answersTableView.reloadData()
     }
     
     func storeMessage(text: String) {
-        editableCell.answerButton.setTitle(text, forState: .Normal)
+        print("text  "+text)
+        answersTableView.answers[editableRow].text = text
+        answersTableView.reloadData()
+        editableRow = -1
     }
 }
 

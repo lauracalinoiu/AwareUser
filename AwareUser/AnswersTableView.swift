@@ -32,7 +32,7 @@ class AnswersTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCellWithIdentifier("answerCell", forIndexPath: indexPath) as! AnswerCellOnEdit
         if indexPath.row >= answers.count {
             cell.textLabel?.text = "insert new row"
-             cell.answerButton.setTitle("", forState: UIControlState.Normal)
+            cell.answerButton.setTitle("", forState: UIControlState.Normal)
         } else {
             cell.textLabel?.text = ""
             cell.answerButton.setTitle(answers[indexPath.row].text, forState: UIControlState.Normal)
@@ -46,7 +46,14 @@ class AnswersTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
     }
     
     func editAnswerClicked(sender: UIButton!){
-        delegateForSegue.performSegue(sender.tag)
+        if self.editing{
+            
+            print("************")
+            for a in answers {
+                print(a.text)
+            }
+            delegateForSegue.performSegue(sender.tag)
+        }
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -58,6 +65,7 @@ class AnswersTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
             answers.append(Answer(text: "", isResponse: false))
             tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Top)
             tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: answers.count, inSection: 0), atScrollPosition: .Top, animated: true)
+            //reloadData()
         }
     }
     
@@ -76,15 +84,11 @@ class AnswersTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
         if editing{
             self.insertRowsAtIndexPaths([NSIndexPath(forRow: answers.count, inSection: 0)], withRowAnimation: .Top)
             self.scrollToRowAtIndexPath(NSIndexPath(forRow: answers.count, inSection: 0), atScrollPosition: .Top, animated: true)
-            reloadData()
         } else {
             self.deleteRowsAtIndexPaths([NSIndexPath(forRow: answers.count, inSection: 0)], withRowAnimation: .Top)
         }
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("HERE!!!")
-    }
     func clearEmptyRows(){
         answers = answers.filter(){
             $0.text != ""
