@@ -21,6 +21,7 @@ class EditAnswerController: UIViewController, UITextViewDelegate {
        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "donePressed")
         textView.delegate = self
         textView.text = answerText
+        self.automaticallyAdjustsScrollViewInsets = false
     }
     
     func textViewDidEndEditing(textView: UITextView) {

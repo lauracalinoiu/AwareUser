@@ -38,8 +38,11 @@ class AnswersTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
             cell.answerButton.setTitle(answers[indexPath.row].text, forState: UIControlState.Normal)
             cell.answerButton.tag = indexPath.row
             cell.answerButton.addTarget(self, action: "editAnswerClicked:", forControlEvents: UIControlEvents.TouchDown)
+            
             cell.isResponseOfQuestion.on = answers[indexPath.row].isResponse
             cell.isResponseOfQuestion.enabled = tableView.editing
+            cell.isResponseOfQuestion.tag = indexPath.row
+            cell.isResponseOfQuestion.addTarget(self, action: "switchChanged:", forControlEvents: .ValueChanged)
         }
         cell.showsReorderControl = true
         return cell
@@ -47,12 +50,13 @@ class AnswersTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
     
     func editAnswerClicked(sender: UIButton!){
         if self.editing{
-            
-            print("************")
-            for a in answers {
-                print(a.text)
-            }
             delegateForSegue.performSegue(sender.tag)
+        }
+    }
+    
+    func switchChanged(sender: UISwitch!){
+        if self.editing{
+            answers[sender.tag].isResponse = sender.on
         }
     }
     
@@ -84,6 +88,7 @@ class AnswersTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
         if editing{
             self.insertRowsAtIndexPaths([NSIndexPath(forRow: answers.count, inSection: 0)], withRowAnimation: .Top)
             self.scrollToRowAtIndexPath(NSIndexPath(forRow: answers.count, inSection: 0), atScrollPosition: .Top, animated: true)
+            reloadData()
         } else {
             self.deleteRowsAtIndexPaths([NSIndexPath(forRow: answers.count, inSection: 0)], withRowAnimation: .Top)
         }
@@ -104,4 +109,5 @@ struct Answer{
 protocol SegueDelegate{
     func performSegue(row: Int) -> Void
 }
+
 
