@@ -96,10 +96,7 @@ class ParseAPIClient {
                 relation.removeObject(object)
                 object.deleteInBackground()
             }
-            self.saveQuestion(question){ success, error in
-                if success{
-                    print("Great!")
-                }
+            self.saveQuestion(question){ _,_ in
             }
             
             for answer in answers{
@@ -109,10 +106,8 @@ class ParseAPIClient {
                 
                 pfAnswer.saveInBackgroundWithBlock(){ _, _ in
                     relation.addObject(pfAnswer)
-                    self.saveQuestion(question){ success, error in
-                        if success{
-                            print("saved!")
-                        }
+                    self.saveQuestion(question){ _, _ in
+                      
                     }
                 }
             }

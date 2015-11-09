@@ -85,7 +85,6 @@ class EditQuestionController: UITableViewController, SegueDelegate, MessageDeleg
     }
     
     func storeMessage(text: String) {
-        print("text  "+text)
         answersTableView.answers[editableRow].text = text
         answersTableView.reloadData()
         editableRow = -1
