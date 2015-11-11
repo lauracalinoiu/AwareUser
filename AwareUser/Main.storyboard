@@ -296,6 +296,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSk-Sq-4LN">
+                                <rect key="frame" x="20" y="237" width="560" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MvC-YR-7j5">
                                 <rect key="frame" x="20" y="193" width="47" height="30"/>
                                 <animations/>
@@ -304,13 +311,6 @@
                                     <action selector="submitPressed:" destination="ReN-MZ-eWJ" eventType="touchUpInside" id="cep-Rn-7nd"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSk-Sq-4LN">
-                                <rect key="frame" x="20" y="237" width="560" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -330,6 +330,7 @@
                     <connections>
                         <outlet property="lblMessage" destination="cSk-Sq-4LN" id="mmY-dx-bhz"/>
                         <outlet property="passTextField" destination="pyF-v7-Fac" id="uFD-EZ-5sj"/>
+                        <outlet property="submitButton" destination="MvC-YR-7j5" id="JvP-Lh-TIg"/>
                         <outlet property="userTextField" destination="p5Z-tf-o5t" id="aeB-CY-rib"/>
                     </connections>
                 </viewController>

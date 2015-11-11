@@ -9,21 +9,30 @@
 import UIKit
 
 class LoginController: UIViewController, TouchIDDelegate {
-
+    
     @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var passTextField: UITextField!
-    var storyboardMain: UIStoryboard?
+    @IBOutlet weak var submitButton: UIButton!
+    
     @IBOutlet weak var lblMessage: UILabel!
+    var storyboardMain: UIStoryboard?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         storyboardMain = UIStoryboard.init(name: "Main", bundle: nil)
-        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         let touchIDAuth : TouchID = TouchID()
         touchIDAuth.touchIDReasonString = "To access the app."
         touchIDAuth.delegate = self
         touchIDAuth.touchIDAuthentication()
+        
+        userTextField.hidden = true
+        passTextField.hidden = true
+        submitButton.hidden = true
     }
+    
     func touchIDAuthenticationWasSuccessful() {
         // TODO: Proceed to the app and show its contents after a successful login.
         
@@ -57,7 +66,7 @@ class LoginController: UIViewController, TouchIDDelegate {
             self.lblMessage.text = "Authentication failed"
         }
     }
-
+    
     @IBAction func submitPressed(sender: UIButton) {
         
         if userTextField.text == "" && passTextField.text == ""{
@@ -68,7 +77,7 @@ class LoginController: UIViewController, TouchIDDelegate {
         if userTextField.text == "admin" && passTextField.text == "admin" {
             let userViewController = storyboard!.instantiateViewControllerWithIdentifier("adminController")
             presentViewController(userViewController, animated: true, completion: nil)
-
+            
         }
     }
 }
