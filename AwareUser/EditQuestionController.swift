@@ -92,8 +92,6 @@ class EditQuestionController: UITableViewController, SegueDelegate, MessageDeleg
         answersTableView.reloadData()
         editableRow = -1
     }
-    
-    
 }
 
 protocol MessageDelegate{

@@ -21,6 +21,7 @@ class ParseAPIClient {
     func getQuestionsWithLimit(completionHandler: (result: [PFObject]!, error: String?) -> Void){
         let query = PFQuery(className: "question")
         query.limit = questionQueryLimit
+        query.orderByDescending("createdAt")
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
@@ -34,6 +35,7 @@ class ParseAPIClient {
     }
     func getAllQuestions(completionHandler: (result: [PFObject]!, error: String?) -> Void){
         let query = PFQuery(className: "question")
+        query.orderByDescending("createdAt")
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
@@ -71,6 +73,7 @@ class ParseAPIClient {
     func getSuggestionsWithLimit(completionHandler: (result: [PFObject]!, error: String?) -> Void){
         let query = PFQuery(className: "suggestion")
         query.limit = suggestionQueryLimit
+        query.orderByDescending("createdAt")
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
@@ -85,6 +88,7 @@ class ParseAPIClient {
     
     func getAllSuggestions(completionHandler: (result: [PFObject]!, error: String?) -> Void){
         let query = PFQuery(className: "suggestion")
+        query.orderByDescending("createdAt")
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
