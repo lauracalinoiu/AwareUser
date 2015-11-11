@@ -10,19 +10,12 @@
 		D318AC521BE897520025160D /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D318AC511BE897510025160D /* CheckBox.swift */; };
 		D318AC541BE89B790025160D /* AnswersTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D318AC531BE89B790025160D /* AnswersTable.swift */; };
 		D318AC561BE89D300025160D /* AnswersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D318AC551BE89D300025160D /* AnswersCell.swift */; };
-		D33A21B01BECDD1D00BD3041 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33A21AF1BECDD1D00BD3041 /* QuestionViewController.swift */; };
 		D34038CC1BF0958600337B7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D34038CB1BF0958600337B7D /* Main.storyboard */; };
-		D34038D01BF0AA4000337B7D /* SuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34038CF1BF0AA3F00337B7D /* SuggestionsViewController.swift */; };
-		D34038D21BF0AF4600337B7D /* EditSuggestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34038D11BF0AF4600337B7D /* EditSuggestionController.swift */; };
 		D34038D41BF2FECA00337B7D /* TouchID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34038D31BF2FEC800337B7D /* TouchID.swift */; };
-		D35991381BED847A00B4E4DA /* AnswerCellOnEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35991371BED847A00B4E4DA /* AnswerCellOnEdit.swift */; };
-		D359913A1BED8A2000B4E4DA /* AnswersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35991391BED8A2000B4E4DA /* AnswersTableView.swift */; };
-		D398F1CB1BEF529800BD236E /* EditAnswerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D398F1CA1BEF529800BD236E /* EditAnswerController.swift */; };
 		D3DE84031BE452DA00261796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DE84021BE452DA00261796 /* AppDelegate.swift */; };
 		D3DE84051BE452DA00261796 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DE84041BE452DA00261796 /* ViewController.swift */; };
 		D3DE840A1BE452DA00261796 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3DE84091BE452DA00261796 /* Assets.xcassets */; };
 		D3DE840D1BE452DA00261796 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3DE840B1BE452DA00261796 /* LaunchScreen.storyboard */; };
-		D3E097481BED440B00182A23 /* EditQuestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E097471BED440A00182A23 /* EditQuestionController.swift */; };
 		D3F6E32D1BE63C4600FAEC59 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3F6E32B1BE63C4600FAEC59 /* Bolts.framework */; };
 		D3F6E32E1BE63C4600FAEC59 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3F6E32C1BE63C4600FAEC59 /* Parse.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		D3F6E3391BE6510A00FAEC59 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3F6E32F1BE6510A00FAEC59 /* AudioToolbox.framework */; };
@@ -45,21 +38,14 @@
 		D318AC511BE897510025160D /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		D318AC531BE89B790025160D /* AnswersTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswersTable.swift; sourceTree = "<group>"; };
 		D318AC551BE89D300025160D /* AnswersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswersCell.swift; sourceTree = "<group>"; };
-		D33A21AF1BECDD1D00BD3041 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		D34038CB1BF0958600337B7D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		D34038CF1BF0AA3F00337B7D /* SuggestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionsViewController.swift; sourceTree = "<group>"; };
-		D34038D11BF0AF4600337B7D /* EditSuggestionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditSuggestionController.swift; sourceTree = "<group>"; };
 		D34038D31BF2FEC800337B7D /* TouchID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TouchID.swift; path = ../TouchID.swift; sourceTree = "<group>"; };
-		D35991371BED847A00B4E4DA /* AnswerCellOnEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerCellOnEdit.swift; sourceTree = "<group>"; };
-		D35991391BED8A2000B4E4DA /* AnswersTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswersTableView.swift; sourceTree = "<group>"; };
-		D398F1CA1BEF529800BD236E /* EditAnswerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAnswerController.swift; sourceTree = "<group>"; };
 		D3DE83FF1BE452DA00261796 /* AwareUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwareUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DE84021BE452DA00261796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3DE84041BE452DA00261796 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D3DE84091BE452DA00261796 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3DE840C1BE452DA00261796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3DE840E1BE452DA00261796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D3E097471BED440A00182A23 /* EditQuestionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditQuestionController.swift; sourceTree = "<group>"; };
 		D3F6E32B1BE63C4600FAEC59 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		D3F6E32C1BE63C4600FAEC59 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D3F6E32F1BE6510A00FAEC59 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -114,20 +100,6 @@
 			name = quiz;
 			sourceTree = "<group>";
 		};
-		D34038CE1BF0A8FC00337B7D /* admin */ = {
-			isa = PBXGroup;
-			children = (
-				D34038CF1BF0AA3F00337B7D /* SuggestionsViewController.swift */,
-				D34038D11BF0AF4600337B7D /* EditSuggestionController.swift */,
-				D35991371BED847A00B4E4DA /* AnswerCellOnEdit.swift */,
-				D33A21AF1BECDD1D00BD3041 /* QuestionViewController.swift */,
-				D3E097471BED440A00182A23 /* EditQuestionController.swift */,
-				D35991391BED8A2000B4E4DA /* AnswersTableView.swift */,
-				D398F1CA1BEF529800BD236E /* EditAnswerController.swift */,
-			);
-			name = admin;
-			sourceTree = "<group>";
-		};
 		D3DE83F61BE452DA00261796 = {
 			isa = PBXGroup;
 			children = (
@@ -161,7 +133,6 @@
 				D3FF47F71BEB5BF000B2832B /* LoginController.swift */,
 				D3F6E3431BE7480700FAEC59 /* ParseAPIClient.swift */,
 				D34038D31BF2FEC800337B7D /* TouchID.swift */,
-				D34038CE1BF0A8FC00337B7D /* admin */,
 				D34038CD1BF0A8C100337B7D /* quiz */,
 				D34038CB1BF0958600337B7D /* Main.storyboard */,
 				D3DE84091BE452DA00261796 /* Assets.xcassets */,
@@ -251,14 +222,7 @@
 				D34038D41BF2FECA00337B7D /* TouchID.swift in Sources */,
 				D318AC561BE89D300025160D /* AnswersCell.swift in Sources */,
 				D3FF47F81BEB5BF000B2832B /* LoginController.swift in Sources */,
-				D359913A1BED8A2000B4E4DA /* AnswersTableView.swift in Sources */,
 				D3DE84031BE452DA00261796 /* AppDelegate.swift in Sources */,
-				D3E097481BED440B00182A23 /* EditQuestionController.swift in Sources */,
-				D34038D01BF0AA4000337B7D /* SuggestionsViewController.swift in Sources */,
-				D33A21B01BECDD1D00BD3041 /* QuestionViewController.swift in Sources */,
-				D398F1CB1BEF529800BD236E /* EditAnswerController.swift in Sources */,
-				D34038D21BF0AF4600337B7D /* EditSuggestionController.swift in Sources */,
-				D35991381BED847A00B4E4DA /* AnswerCellOnEdit.swift in Sources */,
 				D3F6E3441BE7480700FAEC59 /* ParseAPIClient.swift in Sources */,
 				D3F9D08A1BE96DDB00305D08 /* ResultsController.swift in Sources */,
 				D3F9D08C1BE9FD3F00305D08 /* HistoryViewController.swift in Sources */,

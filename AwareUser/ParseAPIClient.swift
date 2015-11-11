@@ -111,35 +111,6 @@ class ParseAPIClient {
         }
     }
     
-    func updateAnswersForQuestion(question: PFObject, answers: [Answer]){
-        let relation = question.relationForKey("answers")
-        let query = relation.query()
-        query!.findObjectsInBackgroundWithBlock(){ [unowned self]
-            (array: [PFObject]?, error: NSError?) -> Void in
-           
-            for object in array! {
-                relation.removeObject(object)
-                object.deleteInBackground()
-            }
-            self.saveQuestion(question){ _,_ in
-            }
-            
-            for answer in answers{
-                let pfAnswer = PFObject(className:"answer")
-                pfAnswer["text"] = answer.text
-                pfAnswer["is_answer"] = answer.isResponse
-                
-                pfAnswer.saveInBackgroundWithBlock(){ _, _ in
-                    relation.addObject(pfAnswer)
-                    self.saveQuestion(question){ _, _ in
-                      
-                    }
-                }
-            }
-            
-        }
-        
-    }
     
     func getFirstShuffled(objects: [PFObject], number: Int) -> [PFObject]{
         let shuffled = GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(objects) as! [PFObject]
