@@ -9,6 +9,9 @@
 import UIKit
 import Parse
 
+//All scores retrieved from phone memory - Parse helps here once again, because it can save also on web
+//or locally, on the phone memory. Data displayed is score, from total obtained on a date. 
+
 class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var historyScoresTable: UITableView!

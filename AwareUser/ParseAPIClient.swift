@@ -10,6 +10,10 @@ import Foundation
 import Parse
 import GameplayKit
 
+//It allows comunication with Parse db
+//On Parse there are 3 tables: - question, answer & suggestion
+//It allows saving, retriving and updates on data
+
 class ParseAPIClient {
     
     let NETWORK_INACCESSIBLE = "The network was inaccesible"

@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+//A custom cell for answers table
 class AnswersCell: UITableViewCell {
     
     @IBOutlet weak var answerLabel: UILabel!

@@ -6,6 +6,9 @@
 //  Copyright © 2015 3Smurfs. All rights reserved.
 //
 
+//Handles TouchId & errors from TouchId. It is called from initial view controller, 
+// and it gives control to the interface through a delegate (it declares a delegate, and the 
+// viewcontroller decides what to do)
 import UIKit
 import LocalAuthentication
 

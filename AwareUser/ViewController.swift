@@ -10,6 +10,12 @@ import UIKit
 import Parse
 import GameplayKit
 
+//ViewController for displaying quiz
+//1. it gets questions from Parse web database  and for everyquestion, possible answers. 
+//2. Data is querried from ParseAPIClient. Questions are retrieved with a limit, and then randomly gotten 
+//from there with another limit (10 max. questions and then 3 randomly chosen for quiz).
+//3. This class contains also quiz logic.
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var questionLabel: UILabel!

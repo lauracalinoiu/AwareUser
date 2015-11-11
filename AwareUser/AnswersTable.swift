@@ -9,6 +9,11 @@
 import UIKit
 import Parse
 
+
+//The table with answers for a question. - 
+//Nicely integrates with checkbutton
+//Contains also quiz logic
+
 class AnswersTable: UITableView, UITableViewDelegate, UITableViewDataSource {
 
     var answers: [PFObject] = [PFObject]()

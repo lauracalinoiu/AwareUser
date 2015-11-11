@@ -9,6 +9,8 @@
 import UIKit
 import Parse
 
+//Displays quiz results, together with page control for some suggestions
+
 class ResultsController: UIViewController {
 
     @IBOutlet weak var messageLabel: UILabel!

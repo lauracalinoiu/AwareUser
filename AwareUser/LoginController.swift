@@ -8,6 +8,9 @@
 
 import UIKit
 
+//Just an initial view that goes further on the app if authentication with TouchID is flawless, 
+//otherwise it displayes errors accordingly
+
 class LoginController: UIViewController, TouchIDDelegate {
     var storyboardMain: UIStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
     var touchIDAuth: TouchID!

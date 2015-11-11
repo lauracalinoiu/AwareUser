@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+//Nice custom button for emulate a swift checkbox, since swift does not contain one
 class CheckBox: UIButton {
     let checkedImage = UIImage(named: "checked")
     let uncheckedImage = UIImage(named: "unchecked")
