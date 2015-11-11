@@ -44,7 +44,7 @@
 		D35991371BED847A00B4E4DA /* AnswerCellOnEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerCellOnEdit.swift; sourceTree = "<group>"; };
 		D35991391BED8A2000B4E4DA /* AnswersTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswersTableView.swift; sourceTree = "<group>"; };
 		D398F1CA1BEF529800BD236E /* EditAnswerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAnswerController.swift; sourceTree = "<group>"; };
-		D3DE83FF1BE452DA00261796 /* AwareUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwareUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3DE83FF1BE452DA00261796 /* AwareAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwareAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DE84021BE452DA00261796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3DE84091BE452DA00261796 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3DE840C1BE452DA00261796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 		D3DE84001BE452DA00261796 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D3DE83FF1BE452DA00261796 /* AwareUser.app */,
+				D3DE83FF1BE452DA00261796 /* AwareAdmin.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,9 +150,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D3DE83FE1BE452DA00261796 /* AwareUser */ = {
+		D3DE83FE1BE452DA00261796 /* AwareAdmin */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D3DE84111BE452DA00261796 /* Build configuration list for PBXNativeTarget "AwareUser" */;
+			buildConfigurationList = D3DE84111BE452DA00261796 /* Build configuration list for PBXNativeTarget "AwareAdmin" */;
 			buildPhases = (
 				D3DE83FB1BE452DA00261796 /* Sources */,
 				D3DE83FC1BE452DA00261796 /* Frameworks */,
@@ -162,9 +162,9 @@
 			);
 			dependencies = (
 			);
-			name = AwareUser;
+			name = AwareAdmin;
 			productName = AwareUser;
-			productReference = D3DE83FF1BE452DA00261796 /* AwareUser.app */;
+			productReference = D3DE83FF1BE452DA00261796 /* AwareAdmin.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -183,7 +183,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D3DE83FA1BE452DA00261796 /* Build configuration list for PBXProject "AwareUser" */;
+			buildConfigurationList = D3DE83FA1BE452DA00261796 /* Build configuration list for PBXProject "AwareAdmin" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -196,7 +196,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D3DE83FE1BE452DA00261796 /* AwareUser */,
+				D3DE83FE1BE452DA00261796 /* AwareAdmin */,
 			);
 		};
 /* End PBXProject section */
@@ -343,8 +343,8 @@
 				INFOPLIST_FILE = AwareUser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-smurfs.com.AwarenessUsr";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "-smurfs.com.AwarenessAdmin";
+				PRODUCT_NAME = AwareAdmin;
 			};
 			name = Debug;
 		};
@@ -361,15 +361,15 @@
 				INFOPLIST_FILE = AwareUser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-smurfs.com.AwarenessUsr";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "-smurfs.com.AwarenessAdmin";
+				PRODUCT_NAME = AwareAdmin;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D3DE83FA1BE452DA00261796 /* Build configuration list for PBXProject "AwareUser" */ = {
+		D3DE83FA1BE452DA00261796 /* Build configuration list for PBXProject "AwareAdmin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D3DE840F1BE452DA00261796 /* Debug */,
@@ -378,7 +378,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D3DE84111BE452DA00261796 /* Build configuration list for PBXNativeTarget "AwareUser" */ = {
+		D3DE84111BE452DA00261796 /* Build configuration list for PBXNativeTarget "AwareAdmin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D3DE84121BE452DA00261796 /* Debug */,

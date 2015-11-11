@@ -2,7 +2,7 @@
 //  EditSuggestionController.swift
 //  AwareUser
 //
-//  Created by Laura Calinoiu on 09/11/15.
+//  Created by ab al on 09/11/15.
 //  Copyright © 2015 3Smurfs. All rights reserved.
 //
 

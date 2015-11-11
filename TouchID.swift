@@ -2,7 +2,7 @@
 //  TouchID.swift
 //  AwareUser
 //
-//  Created by Laura Calinoiu on 11/11/15.
+//  Created by ab al on 11/11/15.
 //  Copyright © 2015 3Smurfs. All rights reserved.
 //
 
