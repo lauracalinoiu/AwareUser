@@ -129,10 +129,10 @@
 		D3DE84011BE452DA00261796 /* AwareUser */ = {
 			isa = PBXGroup;
 			children = (
+				D34038D31BF2FEC800337B7D /* TouchID.swift */,
 				D3DE84021BE452DA00261796 /* AppDelegate.swift */,
 				D3FF47F71BEB5BF000B2832B /* LoginController.swift */,
 				D3F6E3431BE7480700FAEC59 /* ParseAPIClient.swift */,
-				D34038D31BF2FEC800337B7D /* TouchID.swift */,
 				D34038CD1BF0A8C100337B7D /* quiz */,
 				D34038CB1BF0958600337B7D /* Main.storyboard */,
 				D3DE84091BE452DA00261796 /* Assets.xcassets */,
