@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  AwareUser
 //
-//  Created by Laura Calinoiu on 31/10/15.
+//  Created by ab al on 31/10/15.
 //  Copyright © 2015 3Smurfs. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  HistoryViewController.swift
 //  AwareUser
 //
-//  Created by Laura Calinoiu on 04/11/15.
+//  Created by ab al on 04/11/15.
 //  Copyright © 2015 3Smurfs. All rights reserved.
 //
 
