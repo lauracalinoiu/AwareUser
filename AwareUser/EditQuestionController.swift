@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 
+//Allows editing a question together with its answers
 class EditQuestionController: UITableViewController, SegueDelegate, MessageDelegate, UITextViewDelegate{
     
     @IBOutlet weak var questionTextView: UITextView!

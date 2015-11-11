@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+//Custom AnswerCell
 class AnswerCellOnEdit: UITableViewCell{
     @IBOutlet weak var answerButton: UIButton!
     @IBOutlet weak var isResponseOfQuestion: UISwitch!

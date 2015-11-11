@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Simple Controller that allows editing an answer on a textview
 class EditAnswerController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var textView: UITextView!

@@ -9,6 +9,9 @@
 import UIKit
 import Parse
 
+//ViewController that displays whole list of suggestions retrieved from Parse web DB
+//It allows clicking on a row, and this one gets to edit the row
+//It allows of adding an empty row
 class SuggestionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var suggestionArray: [PFObject] = [PFObject]()

@@ -8,6 +8,10 @@
 
 import UIKit
 
+//Editable table view, list of answers. 
+//How to edit - click on the Edit button and a new row with Add appears. Clicking on this adds
+//another row in answers. It is similar with Contacts default app from iPhone
+
 class AnswersTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     
     var answers: [Answer] = [Answer]()

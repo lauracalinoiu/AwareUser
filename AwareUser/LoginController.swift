@@ -1,4 +1,15 @@
+//
+//  LoginController.swift
+//  AwareUser
+//
+//  Created by ab al on 02/11/15.
+//  Copyright © 2015 3Smurfs. All rights reserved.
+//
+
 import UIKit
+
+//Just an initial view controller that goes further on the app if authentication with TouchID is flawless,
+//otherwise it displayes errors accordingly
 
 class LoginController: UIViewController, TouchIDDelegate {
     var storyboardMain: UIStoryboard = UIStoryboard.init(name: "Main", bundle: nil)

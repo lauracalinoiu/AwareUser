@@ -9,6 +9,8 @@
 import UIKit
 import Parse
 
+
+//ViewController for editing a suggestion, or an empty one
 class EditSuggestionController: UIViewController, UITextViewDelegate {
     var suggestion: PFObject!
     @IBOutlet weak var suggestionTextView: UITextView!

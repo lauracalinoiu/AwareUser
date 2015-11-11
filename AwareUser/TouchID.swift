@@ -10,6 +10,9 @@ import UIKit
 import LocalAuthentication
 
 
+//Handles TouchId & errors from TouchId. It is called from initial view controller,
+// and it gives control to the interface through a delegate (it declares a delegate, and the
+// viewcontroller decides what to do)
 enum TouchIDErrorCode {
     case TouchID_AuthenticationFailed   // When the authentication fails (e.g. wrong finger)
     case TouchID_PasscodeNotSet         // No passcode was set in the device's Settings

@@ -9,6 +9,8 @@
 import UIKit
 import Parse
 
+//Viewcontroller for 'controlling' :) whole list of questions - allows adding an empty one or 
+//edit a existing ones
 class QuestionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var questionArray: [PFObject] = [PFObject]()
